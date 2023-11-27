@@ -25,8 +25,10 @@ const timesOpened = document.getElementById("timesopened");
 const firstOpened = document.getElementById("firstvisited");
 if(localStorage.times) {
     localStorage.times = Number(localStorage.times) + 1;
+	timesOpened.innerHTML = localStorage.times;
+    firstOpened.innerHTML = localStorage.first;
 } else {
-    localStorage.times = 0;
+    localStorage.times = 1;
 	var currentTime = new Date();
     localStorage.first = "First visited on " + (Number(currentTime.getMonth()) + 1) + "/" + currentTime.getDate() + "/" + currentTime.getFullYear();
 	timesOpened.innerHTML = localStorage.times;

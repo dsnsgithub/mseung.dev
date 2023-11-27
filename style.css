@@ -3,6 +3,10 @@
 	font-family: "Poppins", sans-serif;
 }
 
+body {
+	overflow: hidden;
+}
+
 #container {
 	height: 100vh;
 	display: flex;
@@ -64,11 +68,12 @@
 }
 #about > * {
 	margin-right: 0.5vw;
-	width: 15vw;
-	height: 25%;
+	width: 12.5vw;
+	height: 22.5%;
 	background-color: lightgreen;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 10%;
+	padding: 20px;
 }
 
 #timesopened {
@@ -127,11 +132,196 @@
 
 .iconlist {
 	display: flex;
-	margin-top: 10%;
+	margin-top: 5%;
 	justify-content: space-evenly;
 	align-items: center;
 }
 
 .iconlist > * {
-	font-size: 5rem;
+	font-size: 4rem;
+}
+
+#mainimg {
+	height: 25vh;
+	margin-top: 1vh;
+	border: 1vh dotted black;
+}
+
+@media only screen and (max-width: 1500px) and (min-width: 900px) {
+	#mainimg {
+		height: 20vh;
+	}
+	
+	.aright > img {
+		transform: scale(0.75, 0.75);
+	}
+}
+
+@media only screen and (max-width: 1250px) and (min-width: 900px) {
+	#name {
+		font-size: 7rem;
+		margin-top: -2rem;
+	}
+	
+	.aright > img {
+		transform: scale(0.75, 0.75);
+	}
+
+	#about > * {
+		height: 18%;
+	}
+
+	.iconlist > * {
+		font-size: 3rem;
+	}
+
+	#twosections {
+		width: 25%;
+	}
+
+	#mainimg {
+		height: 22.5vh;
+	}
+}
+
+@media only screen and (max-width: 1100px) and (min-width: 900px) {
+	#right > * {
+		font-size: 0.75rem;
+	}
+	.aright > img {
+		transform: scale(0.55, 0.55);
+	}
+	#about > * {
+		height: 15%;
+		font-size: 0.8rem;
+	}
+
+	.iconlist > * {
+		font-size: 2.5rem;
+	}
+
+	#twosections {
+		font-size: 0.8rem;
+	}
+
+	#twosections > * {
+		height: 32.5vh;
+	}
+
+	#loginnumber > section {
+		height: 32.5vh !important;
+	}
+
+	#timesopened {
+		font-size: 3.5rem;
+	}
+
+	#mainimg {
+		height: 20vh;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	body {
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+	
+	#name {
+		font-size: 8rem;
+		margin-top: -3rem;
+	}
+	#container {
+		flex-direction: column;
+	}
+
+	#container > * {
+		width: 100%;
+	}
+
+	#right {
+		position: absolute;
+		top: 100vh;
+		width: 100vw;
+	}
+
+	#about {
+		width: 100%;
+	}
+
+	#about > * {
+		width: 25vw;
+	}
+
+	#twosections {
+		width: 45%;
+	}
+
+	#mainimg {
+		height: 20vh;
+	}
+}
+
+@media only screen and (max-width: 730px) {
+	#right > * {
+		font-size: 0.9rem;
+	}
+	.aright > img {
+		transform: scale(0.8, 0.8);
+	}
+}
+
+@media only screen and (max-width: 580px) {
+	#name {
+		font-size: 7rem;
+	}
+	#right > * {
+		font-size: 0.8rem;
+	}
+	.aright > img {
+		transform: scale(0.6, 0.6);
+	}
+
+	#about > * {
+		font-size: 0.8rem;
+		height: 20%;
+	}
+	.iconlist > * {
+		font-size: 2.75rem;
+	}
+
+	#twosections {
+		font-size: 0.8rem;
+	}
+
+	#twosections > * {
+		height: 32.5vh;
+	}
+
+	#loginnumber > section {
+		height: 32.5vh !important;
+	}
+
+	#timesopened {
+		font-size: 3.5rem;
+	}
+
+}
+
+@media only screen and (max-width: 460px) {
+	#twosections {
+		width: 60%;
+	}
+
+	#left {
+		display: block;
+	}
+
+	#about > * {
+		height: 18%;
+	}
+
+	#mainimg {
+		height: 17vh;
+	}
 }

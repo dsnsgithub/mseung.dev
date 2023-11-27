@@ -1,0 +1,184 @@
+/* Reset some default styles for the typewriter effect */
+body,
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the typewriter container */
+.typewriter {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Style the typewriter text */
+.typewriter h1 {
+    font-size: 96px;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    white-space: nowrap; /* Prevent line breaks */
+    overflow: hidden; /* Hide overflowing text */
+    /* width: fit-content; /* Set width to fit the content */
+    /* text-align: left; Set the text alignment to left */
+    position: relative; /* Add relative positioning to create the blinking cursor */
+}
+
+/* Create the blinking cursor using a pseudo-element */
+.typewriter h1::after {
+    content: "|"; /* Set the cursor content to a vertical bar */
+    font-size: 96px; /* Match the font size of the text */
+    font-weight: normal; /* Set the font weight to normal */
+    position: absolute;
+    top: 0;
+    right: -10px; /* Position the cursor after the period (adjust this value as needed) */
+    animation: blink-caret 0.75s infinite;
+}
+
+/* Blinking cursor animation */
+@keyframes blink-caret {
+    from,
+    to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Animation for typing out the text */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+/* Switch styles */
+.switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+/*rest of your CSS code
+/* Scroll arrow styles */
+.scroll-arrow {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px; /* Increase the font size to make it larger */
+    opacity: 0.7;
+    animation: arrow-bounce 1.5s infinite; /* Increase the animation speed to make it bounce faster */
+}
+
+@keyframes arrow-bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+/* Style for the navigation menu */
+.nav-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000; /* Ensure the menu appears above other content */
+}
+
+/* Style for the toggle image */
+#menu-toggle {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Style for the navigation links */
+.nav-menu nav {
+    display: none; /* Hide the navigation links by default */
+    margin-top: 10px;
+}
+
+.nav-menu nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu nav ul li {
+    margin: 5px 0;
+}
+
+/* Display the navigation links when the menu is opened */
+.nav-menu.open nav {
+    display: block;
+}
+
+/* ... (Previous CSS code) ... */
+
+/* Style the typewriter container */
+.typewriter {
+    text-align: right; /* Adjust the text alignment */
+    padding: 20px 1px 20px 20px; /* Adjust the padding for spacing */
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}

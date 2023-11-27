@@ -20,21 +20,6 @@ function startup() {
 
 startup();
 
-// var aList = document.querySelectorAll("a");
-// var date = new Date();
-
-// if (date.getHours() >= 19 || date.getHours() <= 6) {
-// 	document.body.style.backgroundColor = "#070620";
-// 	document.body.style.color = "white";
-
-// 	for (let i = 0; i < aList.length; i++) {
-// 		aList[i].style.border = "2px solid white";
-// 		aList[i].style.color = "white";
-// 	}
-
-// 	document.getElementById("sun").style.display = "none";
-// }
-
 /*times opened--------- */
 const timesOpened = document.getElementById("timesopened");
 const firstOpened = document.getElementById("firstvisited");
@@ -52,25 +37,108 @@ if(localStorage.times) {
 /*emoji launcher------ */
 var angleXList = [];
 var angleYList = [];
-var emojis = ["christmas.png"];
+var emojiList = document.getElementsByClassName("emoji");
+var emojis = ["sun.png"];
+var emojiClient;
+var moveInterval;
+var createInterval;
 
 function createEmoji() {
-	var emoji = document.createElement("div");
-	emoji.style.backgroundImage = "url('/pictures/" + emojis[Math.floor(Math.random() * emojis.length) + 0] + "')";
+	var emoji = document.createElement("img");
+	emoji.src = "/pictures/floatingemojis/" + emojis[Math.floor(Math.random() * emojis.length) + 0];
+	emoji.style.position = "absolute";
+	emoji.style.top= "1px";
+	emoji.style.left = "1px";
+	emoji.style.zIndex = "-1"
+	emoji.classList.add("emoji");
 	if(Math.random() < 0.5) {
 		angleXList.push(1);
-		angleYList.push(Math.random());
+		angleYList.push(Number(Math.random().toFixed(1)));
 	} else {
 		angleYList.push(1);
-		angleXList.push(Math.random());
+		angleXList.push(Number(Math.random().toFixed(1)));
 	}
-	console.log(angleXList[0])
-	console.log(angleYList[0])
-	document.body.appendChild()
+	document.body.appendChild(emoji);
 }
 
-createEmoji();
-function moveEmoji() {
+document.addEventListener("DOMContentLoaded", function() {
+	createInterval = setInterval(createEmoji, 500)
+	moveInterval = setInterval(moveEmoji, 2)
+})
 
+document.addEventListener("visibilitychange", function() {
+	if (document.visibilityState == "visible") {
+		clearInterval(createInterval);
+		clearInterval(moveInterval);
+		createInterval = setInterval(createEmoji, 500)
+		moveInterval = setInterval(moveEmoji, 2)
+	} else {
+		clearInterval(createInterval);
+		clearInterval(moveInterval);
+	}
+});
+
+function moveEmoji() {
+	for(let i=0; i<emojiList.length; i++) {
+		emojiClient = emojiList[i].getBoundingClientRect();
+		if(parseInt(document.body.offsetWidth) <= 900) {
+			if(parseInt(emojiList[i].style.top) > parseInt(document.body.offsetHeight) || parseInt(emojiList[i].style.left) + parseInt(emojiList[i].offsetWidth) > parseInt(document.body.offsetWidth)) {
+				emojiList[i].remove();
+				angleXList.splice(i, 1);
+				angleYList.splice(i, 1);
+			} else {
+				emojiList[i].style.top = parseFloat(emojiList[i].style.top) + angleYList[i] + "px";
+				emojiList[i].style.left = parseFloat(emojiList[i].style.left) + angleXList[i] + "px";
+			}
+		} else {
+			if(parseInt(emojiList[i].style.top) > parseInt(document.body.offsetHeight) || parseInt(emojiList[i].style.left) > parseInt(document.body.offsetWidth) / 2) {
+				emojiList[i].remove();
+				angleXList.splice(i, 1);
+				angleYList.splice(i, 1);
+			} else {
+				emojiList[i].style.top = parseFloat(emojiList[i].style.top) + angleYList[i] + "px";
+				emojiList[i].style.left = parseFloat(emojiList[i].style.left) + angleXList[i] + "px";
+			}
+		}
+	}
 }
 /*emoji launcher------ */
+
+var aList = document.querySelectorAll("a");
+var twosections = document.getElementById("twosections").querySelectorAll("div");
+var about = document.getElementById("about").querySelectorAll("div");
+var date = new Date();
+if (date.getHours() >= 19 || date.getHours() <= 6) {
+	document.body.style.backgroundColor = "#070620";
+	document.body.style.color = "white";
+
+	for(let i = 0; i < aList.length; i++) {
+		aList[i].style.border = "2px solid white";
+		aList[i].style.color = "white";
+	}
+
+	for(let i = 0; i < twosections.length; i++) {
+		twosections[i].style.backgroundColor = "#188a84";
+	}
+
+	for(let i = 0; i < about.length; i++) {
+		about[i].style.backgroundColor = "#42a362";
+	}
+	emojis.splice(emojis.indexOf("sun.png"), 1);
+	emojis.push("moon.png");
+}
+
+if(date.getMonth() == 9 || date.getMonth() == 10) {
+	emojis.push("fall.png")
+}
+if(date.getMonth() == 11 || date.getMonth() == 0) {
+	emojis.push("christmas.png")
+	emojis.push("snowflake.png")
+}
+if(date.getMonth() == 1) {
+	emojis.push("heart.png")
+	emojis.push("heart2.png")
+}
+if(date.getMonth() >= 2 && date.getMonth() <= 4) {
+	emojis.push("flower.png")
+}

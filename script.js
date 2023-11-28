@@ -49,8 +49,8 @@ function createEmoji() {
 	var emoji = document.createElement("img");
 	emoji.src = "/pictures/floatingemojis/" + emojis[Math.floor(Math.random() * emojis.length) + 0];
 	emoji.style.position = "absolute";
-	emoji.style.top= "1px";
-	emoji.style.left = "1px";
+	emoji.style.top= "-125px";
+	emoji.style.left = "-125px";
 	emoji.style.zIndex = "-1"
 	emoji.classList.add("emoji");
 	if(Math.random() < 0.5) {
@@ -84,7 +84,7 @@ function moveEmoji() {
 	for(let i=0; i<emojiList.length; i++) {
 		emojiClient = emojiList[i].getBoundingClientRect();
 		if(parseInt(document.body.offsetWidth) <= 900) {
-			if(parseInt(emojiList[i].style.top) > parseInt(document.body.offsetHeight) || parseInt(emojiList[i].style.left) + parseInt(emojiList[i].offsetWidth) > parseInt(document.body.offsetWidth)) {
+			if(parseInt(emojiList[i].style.top) > parseInt(document.body.offsetHeight) + document.getElementById("right").offsetHeight || parseInt(emojiList[i].style.left) + emojiList[i].offsetHeight > parseInt(document.body.offsetWidth)) {
 				emojiList[i].remove();
 				angleXList.splice(i, 1);
 				angleYList.splice(i, 1);
@@ -93,7 +93,7 @@ function moveEmoji() {
 				emojiList[i].style.left = parseFloat(emojiList[i].style.left) + angleXList[i] + "px";
 			}
 		} else {
-			if(parseInt(emojiList[i].style.top) > parseInt(document.body.offsetHeight) || parseInt(emojiList[i].style.left) > parseInt(document.body.offsetWidth) / 2) {
+			if(parseInt(emojiList[i].style.top) > parseInt(document.body.offsetHeight) || parseInt(emojiList[i].style.left) > parseInt(document.body.offsetWidth)) {
 				emojiList[i].remove();
 				angleXList.splice(i, 1);
 				angleYList.splice(i, 1);
@@ -129,12 +129,13 @@ if (date.getHours() >= 19 || date.getHours() <= 6) {
 	emojis.splice(emojis.indexOf("sun.png"), 1);
 	emojis.push("moon.png");
 }
-
-if(date.getMonth() == 9 || date.getMonth() == 10) {
+if(date.getMonth() == 9) {
+	emojis.push("pumpkin.png")
+}
+if(date.getMonth() == 10) {
 	emojis.push("fall.png")
 }
 if(date.getMonth() == 11 || date.getMonth() == 0) {
-	emojis.push("christmas.png")
 	emojis.push("snowflake.png")
 }
 if(date.getMonth() == 1) {
@@ -143,4 +144,11 @@ if(date.getMonth() == 1) {
 }
 if(date.getMonth() >= 2 && date.getMonth() <= 4) {
 	emojis.push("flower.png")
+}
+if(date.getMonth() == 0 && date.getDate() == 1) {
+	emojis.push("newyear.png")
+}
+if(date.getMonth() == 11 && date.getDate() >= 25) {
+	emojis.push("christmas.png")
+	emojis.push("present.png")
 }

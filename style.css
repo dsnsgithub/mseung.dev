@@ -5,17 +5,20 @@
 
 body {
 	overflow: hidden;
+	background-color: #c6fcff;
 }
 
 #container {
 	height: 100vh;
 	display: flex;
 	flex-direction: row;
+	overflow: hidden;
 }
 
 #container > * {
 	width: 50vw;
 	flex-direction: column;
+	overflow: hidden;
 }
 
 #left {
@@ -35,15 +38,15 @@ body {
 	width: 95%;
 	min-height: 40vh;
 	background-color: transparent;
-	border: 0.5vh solid white;
 	text-decoration: none;
 	display: flex;
 	align-items: center;
 	transition: 0.3s;	
-	color: white;	
+	color: black;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #right > *:hover {
-	background-color: rgba(136, 206, 250, 0.7)
+	background-color: #6bc1ae;
 }
 
 #right > :first-child {
@@ -126,8 +129,7 @@ body {
 	align-items: center;
 }
 .aright > img {
-	opacity: 0.5;
-	border: 1vh dotted white;
+	border: 1vh dotted #2F2D2C;
 }
 
 .iconlist {
@@ -230,6 +232,10 @@ body {
 	#name {
 		font-size: 8rem;
 		margin-top: -3rem;
+	}
+
+	#left {
+		overflow: hidden;
 	}
 	#container {
 		flex-direction: column;

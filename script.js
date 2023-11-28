@@ -109,13 +109,13 @@ function moveEmoji() {
 var aList = document.querySelectorAll("a");
 var twosections = document.getElementById("twosections").querySelectorAll("div");
 var about = document.getElementById("about").querySelectorAll("div");
+var right = document.getElementById("right").querySelectorAll("a");
 var date = new Date();
 if (date.getHours() >= 19 || date.getHours() <= 6) {
 	document.body.style.backgroundColor = "#070620";
 	document.body.style.color = "white";
 
 	for(let i = 0; i < aList.length; i++) {
-		aList[i].style.border = "2px solid white";
 		aList[i].style.color = "white";
 	}
 
@@ -125,6 +125,10 @@ if (date.getHours() >= 19 || date.getHours() <= 6) {
 
 	for(let i = 0; i < about.length; i++) {
 		about[i].style.backgroundColor = "#42a362";
+	}
+
+	for(let i = 0; i < right.length; i++) {
+		right[i].style.backgroundColor = "#020035";
 	}
 	emojis.splice(emojis.indexOf("sun.png"), 1);
 	emojis.push("moon.png");

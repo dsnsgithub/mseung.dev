@@ -323,6 +323,7 @@ function spawnZombies() {
         }
     } else if(zombieStats[zombiePicker].name == "Juggernaut" && canJuggerSpawn == true) {
         juggerAmount++;
+        zombieTypes.splice(zombieTypes.indexOf("Juggernaut"), 1);
         if(juggerAmount == 1) {
             canJuggerSpawn = false;
         }
@@ -1249,12 +1250,12 @@ function start() {
 
     wave++;
     round = 1;
-    if(wave % 5 == 0) {
+    // if(wave % 5 == 0) {
         if(nextZombieType < zombieStats.length-1) {
             zombieTypes.push(zombieStats[nextZombieType].name);
             nextZombieType++;
         }
-    }
+    // }
     if(wave % 2 == 0) {
         expectedRounds += 1;
     }

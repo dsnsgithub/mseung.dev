@@ -152,7 +152,7 @@ if(date.getMonth() >= 2 && date.getMonth() <= 4) {
 if(date.getMonth() == 0 && date.getDate() == 1) {
 	emojis.push("newyear.png")
 }
-if(date.getMonth() == 11 && date.getDate() >= 25) {
+if(date.getMonth() == 11 && date.getDate() == 25) {
 	emojis.push("christmas.png")
 	emojis.push("present.png")
 }

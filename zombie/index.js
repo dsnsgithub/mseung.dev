@@ -1342,7 +1342,7 @@ document.addEventListener("mousemove", followMouse);
 /*----------------------------------------------------------------- */
 
 /*start round------------------------------------------------- */
-var wave = 19;
+var wave = 0;
 var round = 1;
 var expectedRounds = 1;
 var zombieAmount = 5;

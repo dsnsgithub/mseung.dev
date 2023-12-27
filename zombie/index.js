@@ -42,7 +42,7 @@ var maps = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 1, 0, 1, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0],
@@ -318,6 +318,7 @@ function render(map) {
             function setDiv(number, color) {
                 divList[divnumber - 1].style.display = "block";
                 divList[divnumber - 1].classList.add(classes[number]);
+                console.log(classes[number], divList[divnumber])
                 divList[divnumber - 1].style.backgroundColor = color;
                 divList[divnumber - 1].style.marginTop = yMargin + "px";
                 divList[divnumber - 1].style.marginLeft = xMargin + "px";
@@ -335,6 +336,7 @@ function render(map) {
 }
 function resetDivs() {
     for (let i = 0; i < divList.length; i++) {
+        divList[divnumber - 1].className = "";
         divList[divnumber - 1].style.display = "none";
         divnumber++;
     }
@@ -348,7 +350,6 @@ var zombieMarginLeft = 0;
 var zombieMarginTop = 0;
 var layoutClient = layout.getBoundingClientRect();
 var zombieClient;
-var path = [];
 var open;
 var start;
 var zombieList = [];
@@ -897,7 +898,6 @@ function checkObstacle() {
         for (let i = 0; i < tiles.length; i++) {
             obstacleClient = tiles[i].getBoundingClientRect();
             playerClient = block.getBoundingClientRect();
-
             if (tiles[i].className !== "path") {
                 if (playerClient.top + parseInt(block.offsetHeight) == obstacleClient.top && playerClient.left + parseInt(block.offsetWidth) > obstacleClient.left && playerClient.right - parseInt(block.offsetWidth) < obstacleClient.right) {
                     up = true;

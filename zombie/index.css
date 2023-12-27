@@ -94,12 +94,15 @@ body {
     justify-content: end;
     z-index: 2;
     user-select: none;
+    font-size: 3vh;
 }
 
 #weapon {
     display: flex;
     align-items: center;
     z-index: 1;
+    width: 10vh;
+    user-select: none;
 }
 
 .bullet {

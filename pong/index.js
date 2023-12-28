@@ -119,3 +119,8 @@ function moveBall() {
 		}
 	}
 }
+
+let isMobile = navigator.userAgent.match(/iphone|android|blackberry/ig) ? true : false;
+if(isMobile) {
+    alert("Device is not supported.")
+}

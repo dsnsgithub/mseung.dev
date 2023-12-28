@@ -444,3 +444,8 @@ if (date.getHours() >= 19 || date.getHours() <= 6) {
 		articleList[t].style.backgroundColor = "white";
 	}
 }
+
+let isMobile = navigator.userAgent.match(/iphone|android|blackberry/ig) ? true : false;
+if(isMobile) {
+    alert("Device is not supported.")
+}

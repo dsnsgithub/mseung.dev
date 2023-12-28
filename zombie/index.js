@@ -215,16 +215,16 @@ var zombieStats = [
         color: "green",
     },
 
-    commander = {
-        name: "Commander",
-    },
-
     armored = {
         name: "Armored",
         health: 200,
         damage: 5,
         speed: 0.5,
         color: "gray",
+    },
+
+    commander = {
+        name: "Commander",
     },
 
     miniboss = {

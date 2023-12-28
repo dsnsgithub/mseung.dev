@@ -45,3 +45,8 @@ if (date.getHours() >= 19 || date.getHours() <= 6) {
 	document.body.style.backgroundColor = "#070620";
 	document.body.style.color = "white";
 }
+
+let isMobile = navigator.userAgent.match(/iphone|android|blackberry/ig) ? true : false;
+if(isMobile) {
+    alert("Device is not supported.")
+}

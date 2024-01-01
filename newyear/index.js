@@ -11,7 +11,7 @@ var date;
 setInterval(function() {
     date = new Date()
 
-    if(date.getMonth() == 11 && date.getDate() == 31) {
+    if((date.getMonth() == 11 && date.getDate() == 31) || (date.getMonth() == 0 && date.getDate() == 1)) {
         if(date.getHours() >= 19 || date.getHours() <= 6) {
             document.body.style.backgroundColor = "#070620";
             document.body.style.color = "white";
@@ -28,10 +28,14 @@ setInterval(function() {
             if(seconds > 60) {
                 minutes = Math.floor(seconds / 60);
                 seconds = seconds - (Math.floor(seconds / 60) * 60);
+            } else {
+                minutes = 0;
             }
             if(minutes > 60) {
                 hours = Math.floor(minutes / 60);
                 minutes = minutes - (Math.floor(minutes / 60) * 60);
+            } else {
+                hours = 0;
             }
             hoursElement.innerHTML = hours + " hours";
             minutesElement.innerHTML = minutes + " minutes";

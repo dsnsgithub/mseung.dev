@@ -183,7 +183,7 @@ function moveEmoji() {
 	for(let i=0; i<emojiList.length; i++) {
 		emojiClient = emojiList[i].getBoundingClientRect();
 		if(parseInt(document.body.offsetWidth) <= 900) {
-			if(parseInt(emojiList[i].style.top) > parseInt(document.body.offsetHeight) || parseInt(emojiList[i].style.left) > parseInt(document.body.offsetWidth)) {
+			if(parseInt(emojiList[i].style.top) > parseInt(document.body.offsetHeight) || parseInt(emojiList[i].style.left) + emojiList[i].offsetWidth > parseInt(document.body.offsetWidth)) {
 				emojiList[i].remove();
 				angleXList.splice(i, 1);
 				angleYList.splice(i, 1);

@@ -1,323 +1,391 @@
 * {
-	margin: 0;
-	font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
-	overflow: hidden;
-	background-color: #c6fcff;
-	height: 100vh;
-	width: 100vw;
+    overflow: hidden;
+    height: 100vh;
 }
 
-#container {
-	height: 100vh;
-	display: flex;
-	flex-direction: row;
-	overflow: hidden;
+a {
+    text-decoration: none;
+    color: black;
+}
+#name {
+    width: 100vw;
+    height: 20vh;
+    text-align: center;
+    font-size: 15vh;
+    font-family: "Dancing Script", sans-serif;
+    text-shadow: 2px 2px 2px black;
 }
 
-#container > * {
-	width: 50vw;
+#menu {
+    position: absolute;
+    background-color: lightslategray;
+    width: 100vw;
+    height: 100vh;
+    animation: 0.75s ease-in-out;
+    display: none;
+}
+
+#menubutton {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
+    gap: 15%;
+}
+
+#menubutton:hover {
+    cursor: pointer;
+}
+
+#menubutton > .menuline {
+    width: 60%;
+    height: 7.5%;
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    animation: 0.5s both;
+}
+
+#menustuff {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    animation: 0.5s both;
+    left: -100%;
+    z-index: 5;
+}
+
+.container {
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    animation: 1.1s;
+    height: 100vh;
+}
+#maincontainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#projectcontainer {
+    align-items: center;
 	flex-direction: column;
-	overflow: hidden;
+    display: none;
+	gap: 5vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+#socialscontainer {
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 
-#left {
-	display: flex;
-	flex-direction: column;
-	gap: 1%;
+#projectcontainer > :first-child {
+    margin-top: 5vh;
 }
 
-#right {
-	display: flex;
-	gap: 1vh;
-	overflow-y: scroll;
-	align-items: center;
+#projectcontainer > :last-child {
+    margin-bottom: 5vh;
+}
+.project {
+    min-width: 50vw;
+    min-height: 50vh;
+    max-width: 50vw;
+    max-height: 50vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1vh;
+    transition: 0.3s;
 }
 
-#right > * {
-	width: 95%;
-	min-height: 40vh;
-	background-color: transparent;
-	text-decoration: none;
-	display: flex;
-	align-items: center;
-	transition: 0.3s;	
-	color: black;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.left {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.innerleft {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
 }
 
-#right > *:hover {
-	background-color: #6bc1ae !important;
+.right > * {
+    width: 80%;
+    border: 1vh dotted black;
 }
 
-#right > :first-child {
-	margin-top: 1vh;
+.project:hover {
+    min-width: 51vw;
+    min-height: 51vh;
+    cursor: pointer;
 }
-#right > :last-child {
-	margin-bottom: 1vh;
+.button {
+    width: 45vw;
+    height: 30vh;
+    border-radius: 1.5vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: grid;
+    place-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-#about {
-	width: 50%;
-	height: 100%;
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	gap: 1%;
-	align-items: flex-end;
+#socials {
+    width: 250px;
+    height: 22.5%;
+    display: flex;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: lightslategray;
+    border-radius: 2.5vh;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-#about > :first-child {
-	margin-top: 1%;
+#socials > * {
+    cursor: pointer;
 }
-#about > * {
-	margin-right: 0.5vw;
-	width: 12.5vw;
-	height: 22.5%;
-	background-color: lightgreen;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border-radius: 10%;
-	padding: 20px;
+
+.icon {
+    font-size: 3rem;
 }
 
 #timesopened {
-	font-size: 5rem;
+    font-size: 2rem;
 }
 
-#twosections {
-	position: absolute;
-	height: fit-content;
-	width: 20%;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	bottom: 0;
-	margin-left: 0.5%;
-}
-#twosections > * {
-	text-align: center;
-	width: 100%;
-	height: 35vh;
-	background-color: lightseagreen;
-	border-radius: 10%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	margin-bottom: 1%;
+@keyframes slidein {
+    0% {
+        width: 0vw;
+        height: 100px;
+    }
+
+    50% {
+        width: 100vw;
+        height: 100px;
+    }
+
+    100% {
+        width: 100vw;
+        height: 100vh;
+    }
 }
 
-#loginnumber {
-	display: flex;
-	justify-content: center;
+@keyframes fromleft {
+    from {left: -100%;}
+
+    to {left: 0;}
 }
 
-#name {
-	font-size: 10rem;
-	font-family: 'Dancing Script', sans-serif;
-	text-shadow: 2px 2px 2px black;
-	margin-top: -3rem;
+@keyframes blur {
+    from {filter: none;}
+    to {filter: blur(200px);}
 }
 
-.aleft {
-	width: 50%;
-	display: flex;
-	flex-direction: column;
-	margin-left: 5%;
+@keyframes move1 {
+    from{
+        rotate: 0deg;
+    }
+    to {
+        rotate: 45deg;
+        margin-bottom: -45%;
+    }
+}
+@keyframes moveback1 {
+    from{
+        rotate: 45deg;
+        margin-bottom: -45%;
+    }
+    to {
+        rotate: 0deg;
+    }
+}
+@keyframes move2 {
+    0% {
+        margin-left: 0;
+    }
+    50% {
+        margin-left: -100vw;
+    }
+    100% {
+        margin-left: -100vw;
+    }
+}
+@keyframes moveback2 {
+    0% {
+        margin-left: -100vw;
+    }
+    50% {
+        margin-left: -100vw;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+@keyframes move3 {
+    from{
+        rotate: 0deg;
+    }
+
+    to{
+        rotate: -45deg;
+    }
+}
+@keyframes moveback3 {
+    from{
+        rotate: -45deg;
+    }
+
+    to{
+        rotate: 0deg;
+    }
 }
 
-.aright {
-	width: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.aright > img {
-	border: 1vh dotted #2F2D2C;
-	width: 90%;
-}
-
-.iconlist {
-	display: flex;
-	margin-top: 5%;
-	justify-content: space-evenly;
-	align-items: center;
-}
-
-.iconlist > * {
-	font-size: 4rem;
-}
-
-#mainimg {
-	width: 70%;
-	margin-top: 1vh;
-	border: 1vh dotted black;
-}
 
 
-@media only screen and (min-height: 950px) and (max-width: 2100px) {
-	#twosections > * {
-		height: 30vh;
-	}
 
-	#about > * {
-		height: 18%;
-	}
 
-	#loginnumber > section {
-		height: 30vh !important;
-	}
+
+
+
+@media screen and (min-width: 1500px) {
+    #menubutton {
+        width: 5vw;
+        height: 5vw;
+    }
+    
+    @keyframes slidein {
+        0% {
+            width: 0vw;
+            height: 5vw;
+        }
+    
+        50% {
+            width: 100vw;
+            height: 5vw;
+        }
+    
+        100% {
+            width: 100vw;
+            height: 100vh;
+        }
+    }
 }
 
-@media only screen and (max-width: 1500px) and (min-width: 900px) {
-	#mainimg {
-		width: 70%;
-	}
+@media screen and (min-height: 1300px) {
+    #menubutton {
+        width: 10vh;
+        height: 10vh;
+    }
+
+    @keyframes slidein {
+        0% {
+            width: 0vw;
+            height: 10vh;
+        }
+    
+        50% {
+            width: 100vw;
+            height: 10vh;
+        }
+    
+        100% {
+            width: 100vw;
+            height: 100vh;
+        }
+    }
 }
 
-@media only screen and (max-width: 1250px) and (min-width: 900px) {
-	#name {
-		font-size: 7rem;
-		margin-top: -2rem;
-	}
-	
-
-	#about > * {
-		height: 18%;
-	}
-
-	.iconlist > * {
-		font-size: 3rem;
-	}
-
-	#twosections {
-		width: 25%;
-	}
-
+@media screen and (max-width: 1625px) {
+    .project {
+        min-width: 800px;
+        max-width: 800px;
+    }
+    
+    .project:hover {
+        min-width: 850px;
+        max-width: 850px;
+    }
 }
 
-@media only screen and (max-width: 1100px) and (min-width: 900px) {
-	#right > * {
-		font-size: 0.75rem;
-	}
+@media screen and (max-width: 850px) {
+    #name {
+        height: 25vw;
+        font-size: 20vw;
+    }
 
-	#about > * {
-		height: 15%;
-		font-size: 0.8rem;
-	}
+    #menustuff > * {
+        width: 70%;
+    }
+    .project {
+        flex-direction: column;
+        min-width: 90%;
+        max-width: 90%;
+    }
 
-	.iconlist > * {
-		font-size: 2.5rem;
-	}
+    .project:hover {
+        min-width: 90vw;
+        max-width: 90vw;
+    }
+    .left {
+        width: 100%;
+        height: 50%;
+    }
 
-	#twosections {
-		font-size: 0.8rem;
-	}
+    .left > * {
+        margin-left: 0;
+    }   
 
-	#twosections > * {
-		height: 32.5vh;
-	}
+    #projectcontainer > :first-child {
+        margin-top: 12.5vh;
+    }
 
-	#loginnumber > section {
-		height: 32.5vh !important;
-	}
+    .right {
+        height: 50%;
+        width: 100%;
+    }
 
-	#timesopened {
-		font-size: 3.5rem;
-	}
+    .right > * {
+        width: auto;
+        height: 70%;
+        border: 1vh dotted black;
+    }
 
+    #projectcontainer > :last-child > .right > * {
+        height: auto;
+        width: 80%;
+    }
 }
 
-@media only screen and (max-width: 900px) {
-	body {
-		overflow-x: hidden;
-		overflow-y: scroll;
-	}
-	
-	#name {
-		font-size: 8rem;
-		margin-top: -3rem;
-	}
-
-	#left {
-		overflow: hidden;
-	}
-	#container {
-		flex-direction: column;
-	}
-
-	#container > * {
-		width: 100%;
-	}
-
-	#right {
-		position: absolute;
-		top: 100vh;
-		width: 100vw;
-	}
-
-	#about {
-		width: 100%;
-	}
-
-	#about > * {
-		width: 25vw;
-	}
-
-	#twosections {
-		width: 45%;
-	}
-}
-
-@media only screen and (max-width: 730px) {
-	#right > * {
-		font-size: 0.9rem;
-	}
-}
-
-@media only screen and (max-width: 580px) {
-	#name {
-		font-size: 7rem;
-	}
-	#right > * {
-		font-size: 0.8rem;
-	}
-
-	#about > * {
-		font-size: 0.8rem;
-		height: 20%;
-	}
-	.iconlist > * {
-		font-size: 2.75rem;
-	}
-
-	#twosections {
-		font-size: 0.8rem;
-	}
-
-	#twosections > * {
-		height: 32.5vh;
-	}
-
-	#loginnumber > section {
-		height: 32.5vh !important;
-	}
-
-	#timesopened {
-		font-size: 3.5rem;
-	}
-
-}
-
-@media only screen and (max-width: 460px) {
-	#twosections {
-		width: 60%;
-	}
-
-	#left {
-		display: block;
-	}
-
-	#about > * {
-		height: 18%;
-	}
+@media screen and (max-height: 550px) {
+    #name {
+        height: 30vh;
+        font-size: 20vh;
+    }
 }

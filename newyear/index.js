@@ -6,7 +6,7 @@ const container = document.getElementById("container");
 
 var hours = 0;
 var minutes = 0;
-var seconds;
+var seconds = 0;
 var date;
 setInterval(function() {
     date = new Date()

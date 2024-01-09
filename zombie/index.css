@@ -63,6 +63,7 @@ body {
     height: 5vh;
     background-color: saddlebrown;
     animation-duration: 4s;
+    animation-timing-function: linear;
 }
 
 @keyframes progress {

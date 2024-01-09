@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>MSEUNG Bio</title>
+	<title>Max's Bio</title>
 
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="Max's Bio">
@@ -30,196 +29,184 @@
 		gtag('config', 'G-ETL119JD39');
 	</script>
 </head>
-
 <body>
-	<!-- <div id="menu">
-		<div class="far fa-folder" id="menubutton" onclick="openMenu()"></div>
-		<div id="list">
-			<a href="https://maxas10.github.io/">My Old Site</a>
-			<a href="/skills/">My Skills</a>
-			<a href="/stock/">Stock Trading Simulator</a>
-			<a href="/pong/">Ponged</a>
-			<a href="/changelog/">Changelog</a>
-			<a href="/packjacksimple/">Packjack</a>
-			<a href="/tracker/">Doodle Board</a>
-			<a href="/aimtrainer/">Aim Trainer</a>
-			<a href="/hack/">Doxx This Website!</a>
-			<a href="/twentydollar/">Twenty Dollar Website</a>
-			<a href="/movebox/">Movebox</a>
-			<a href="/birthdays/">Birthdays</a>
-		</div>
+    <div id="menubutton" onclick="slide()">
+        <div class="menuline"></div>
+        <div class="menuline"></div>
+        <div class="menuline"></div>
+    </div>
+    <menu id="menu"></menu>
+    <div id="menustuff" class="allsections">
+        <div class="button" onclick="changeContent('main')">Home</div>
+        <div class="button" onclick="changeContent('project')">Projects</div>
+        <div class="button" onclick="changeContent('socials')">Socials</div>
+    </div>
+
+	<div style="position: absolute; bottom: 0; display: flex; flex-direction: column;">
+		Times You Visited:
+		<p id="timesopened"></p>
+		<p id="firstvisited"></p>
 	</div>
-	<div id="main">
-		<img src="/pictures/sun.png" alt="" id="sun">
-		<img src="/pictures/arrow.png" alt="" id="arrow">
 
-		<div id="left">
-			<p id="name"></p>
-			<p id="quote">"Least insane person in Oklahoma"</p>
-			<div id="iconlist">
-				<img src="/pictures/youtube.png" alt="youtube" style="width: 60px; margin-top: 2vh; cursor: pointer;" onclick="parent.location=`https://www.youtube.com/shorts/wFceGELtM9M`">
-			</div>
-		</div>
+    <div class="container" id="maincontainer">
+        <h1 id="name"></h1>
+        <p>A front end developer since 2018.</p>
+        <div id="skills"></div>
+    </div>
 
-		<img src="/pictures/david.jpg" id="mainimg">
-	</div> -->
-	<div id="container">
-
-		<div id="left">
-			<h1 id="name"></h1>
-			<div id="about">
-				<div>
-					<h2>About Me</h2>
-					<p>A front end developer since 2018 that is passionate about games.</p>
-				</div>
-
-				<div onclick="location.href = 'https://mseung.dev/skills'" style="cursor:pointer;">
-					<h2>Skills</h2>
-					<section class="iconlist">
-						<div class="fab fa-html5" style="color: #e34c26;"></div>
-						<div class="fab fa-css3" style="color: #264de4;"></div>
-						<div class="fab fa-js" style="color: yellow;"></div>
-					</section>
-					<section class="iconlist">
-						<div class="fab fa-github"></div>
-						<div class="fab fa-python"></div>
-						<div class="fab fa-java"></div>
-					</section>
-				</div>
-
-				<div>
-					<h2 style="position: absolute;">Socials</h2>
-					<section class="iconlist" style="height: 100%; margin: 0;">
-						<div class="fab fa-youtube" style="color: red; cursor:pointer;" onclick="location.href = 'https://www.youtube.com/@max-the-penguin'"></div>
-						<div class="fab fa-github"style="cursor:pointer;" onclick="location.href = 'https://github.com/dsnsgithub/mseung.dev'"></div>
-					</section>
-				</div>
-			</div>
-			<div id="twosections">
-				<div id="upcoming">
-					<h2>RELEASED!</h2>
-					<p>New zombie game?!?!??!? 🤔😬😱😱</p>
-					<img src="./pictures/zombies.png" style="cursor:pointer;" onclick="location.href = '/zombie/'" id="mainimg">
-				</div>
-	
-				<div id="loginnumber">
-					<h2 style="justify-self: center;">Times You Visited</h2>
-					<section style="display: flex; width: 45%; height: 35vh; position: absolute; justify-content: center; align-items: center">
-						<p id="timesopened"></p>
-					</section>
-					<section style="display: flex; width: 45%; height: 35vh; position: absolute; justify-content: center; align-items: flex-end;">
-						<p id="firstvisited"></p>
-					</section>
-				</div>
-			</div>
-		</div>
-		<div id="right">
-			<a href="/changelog/">
-				<div class="aleft">
-					<h2>Changelog</h2>
+    <div class="container" id="projectcontainer">
+        <a href="/changelog/" class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>Changelog</h1>
 					<p>MSEUNG.dev's history from start to now.</p>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/changelog.PNG" ></div>
-			</a>
-
-			<a href="https://maxas10.github.io/">
-				<div class="aleft">
-					<h2>My Old Site</h2>
-					<p>I had copied this layout word for word off of a tutorial in 2020.</p>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/changelog.PNG">
+			</div>
+		</a>
+		<a href="https://maxas10.github.io/"class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>My Old Site</h1>
+					<div>I had copied this layout word for word off of a tutorial in 2020.</div>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/maxas10.PNG"></div>
-			</a>
-
-			<a href="/stock/">
-				<div class="aleft">
-					<h2>Stock Trading Simulator</h2>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/maxas10.PNG">
+			</div>
+		</a>
+		<a href="/stock/" class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>Stock Trading Simulator</h1>
 					<p>Invest in two companies! Get rich! Get even richer with brokers! But be aware, the stock price could change at any time.</p>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/sts.PNG"></div>
-			</a>
-
-			<a href="/pong/">
-				<div class="aleft">
-					<h2>Ponged</h2>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/sts.PNG">
+			</div>
+		</a>
+		<a href="/pong/" class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>Ponged</h1>
 					<p>(DOES NOT WORK ON MOBILE) Tap WASD or the arrow keys to move the paddle slightly.</p>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/pong.PNG"></div>
-			</a>
-
-			<a href="/packjacksimple/">
-				<div class="aleft">
-					<h2>Packjack</h2>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/pong.PNG">
+			</div>
+		</a>
+		<a href="/packjacksimple/" class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>Packjack</h1>
 					<p>Randomizer game to feed your gambling addiction.</p>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/packjack.PNG"></div>
-			</a>
-
-			<a href="/tracker/">
-				<div class="aleft">
-					<h2>Doodle Board</h2>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/packjack.PNG">
+			</div>
+		</a>
+		<a href="/tracker/" class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>Doodle Board</h1>
 					<p>(DOES NOT WORK ON MOBILE) Click to toggle a black pen to draw something on a canvas. Reset the board by refreshing the page.</p>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/tracker.PNG"></div>
-			</a>
-
-			<a href="/aimtrainer/">
-				<div class="aleft">
-					<h2>Aim Trainer</h2>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/tracker.PNG">
+			</div>
+		</a>
+		<a href="/aimtrainer/" class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>Aim Trainer</h1>
 					<p>(WORKS VERY BADLY ON MOBILE) Train your aim!</p>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/aimtrainer.PNG"></div>
-			</a>
-
-			<a href="/twentydollar/">
-				<div class="aleft">
-					<h2>Twenty Dollar Website</h2>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/aimtrainer.PNG">
+			</div>
+		</a>
+		<a href="/twentydollar/" class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>Twenty Dollar Website</h1>
 					<p>Create your own music! Inspired by Thirty Dollar Website.</p>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/twentydollar.PNG"></div>
-			</a>
-
-			<a href="/movebox/">
-				<div class="aleft">
-					<h2>Movebox</h2>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/twentydollar.PNG">
+			</div>
+		</a>
+		<a href="/movebox/" class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>Movebox</h1>
 					<p>(DOES NOT WORK ON MOBILE) Move a box to the green square while dodging missiles! Inspired by Sokoban.</p>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/movebox.PNG"></div>
-			</a>
-
-			<a href="/birthdays/">
-				<div class="aleft">
-					<h2>Birthdays</h2>
-					<p>Closest birthdays will be moved to the front. Birthdays are celebrated from 12:00 AM PST to 11:59 PM PST</p>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/movebox.PNG">
+			</div>
+		</a>
+		<a href="/birthdays/" class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>Birthdays</h1>
+					<p>Closest birthdays will be moved to the front. Celebrated in local time.</p>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/birthdays.PNG"></div>
-			</a>
-
-			<a href="/zombie/">
-				<div class="aleft">
-					<h2>Max's Zombies</h2>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/birthdays.PNG">
+			</div>
+		</a>
+		<a href="/zombie/" class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>Max's Zombies</h1>
 					<p>Manage your ammo while shooting zombies! Have depression!</p>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/zombies.PNG"></div>
-			</a>
-
-			<a href="/newyear/">
-				<div class="aleft">
-					<h2>New Year Countdown</h2>
-					<p>New Year's is celebrated from 12:00 AM PST to 11:59 PM PST.</p>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/zombies.PNG">
+			</div>
+		</a>
+		<a href="/newyear/" class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>New Year Countdown</h1>
+					<p>A reliable New Year countdown without any promotions or advertisements.</p>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/newyear.png"></div>
-			</a>
-			
-			<a href="/hack/">
-				<div class="aleft">
-					<h2>Doxx this Website!</h2>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/newyear.PNG">
+			</div>
+		</a>
+		<a href="/hack/" class="project">
+			<div class="left">
+				<div class="innerleft">
+					<h1>Doxx this Website!</h1>
 					<p>Don't do it...</p>
 				</div>
-				<div class="aright"><img src="./pictures/buttonimages/hack.PNG"></div>
-			</a>
+			</div>
+			<div class="right">
+				<img src="./pictures/buttonimages/hack.PNG">
+			</div>
+		</a>
+    </div>
+
+	<div class="container" id="socialscontainer">
+		<div id="socials">
+			<div class="icon fab fa-github" onclick="location.href = 'https://github.com/dsnsgithub/mseung.dev/'"></div>
+			<div class="icon fab fa-youtube" onclick="location.href = 'https://www.youtube.com/@max-the-penguin'"></div>
 		</div>
 	</div>
+
 	<script src="script.js"></script>
 </body>
-
 </html>

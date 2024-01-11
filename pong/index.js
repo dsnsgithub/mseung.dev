@@ -12,6 +12,7 @@ var racketPos = 0;
 var racketPos2 = 0;
 var ballXPos = 0;
 var ballYPos = 0;
+var ballSpeed = 5.75
 var angle = Math.random() * 2.5 - 1.5;
 var ballPos;
 var player1Pos, playerPos2;
@@ -19,23 +20,40 @@ var player1Pos, playerPos2;
 var ballInterval;
 
 function moveRacket(e) {
-	if (e.keyCode == 38) {
-		racketPos = racketPos - 50;
-	} else if (e.keyCode == 40) {
-		racketPos = racketPos + 50;
+	if (e == "ArrowUp") {
+		racketPos = racketPos - 3;
+	} else if (e == "ArrowDown") {
+		racketPos = racketPos + 3;
 	}
 	player2.style.marginTop = racketPos + "px";
 }
 
 function moveRacket2(e) {
-	if (e.keyCode == 87) {
-		racketPos2 = racketPos2 - 50;
-	} else if (e.keyCode == 83) {
-		racketPos2 = racketPos2 + 50;
+	if (e == "w") {
+		racketPos2 = racketPos2 - 3;
+	} else if (e == "s") {
+		racketPos2 = racketPos2 + 3;
 	}
 	player1.style.marginTop = racketPos2 + "px";
 }
 
+let controller = {}
+document.addEventListener("keydown", (e) => {
+    controller[e.key] = true
+})
+
+document.addEventListener("keyup", (e) => {
+    controller[e.key] = false
+})
+
+setInterval(() => {
+	for (const key in controller) {
+		if (controller[key] == true) {
+			moveRacket(key);
+			moveRacket2(key)
+		}
+	}
+}, 1)
 document.addEventListener("keydown", moveRacket, false);
 document.addEventListener("keydown", moveRacket2, false);
 
@@ -83,6 +101,7 @@ function moveBall() {
 				angle = Math.random() * 2.5 - 1.5; /*change angle of ball*/
 				clearInterval(ballInterval); /*stop moving left*/
 				ballInterval = setInterval(moveRight, 0.01); /*start moving right*/
+				ballSpeed+=0.1;
 			} else {
 				score2.innerHTML++;
 				clearInterval(ballInterval);
@@ -90,6 +109,7 @@ function moveBall() {
 				ballYPos = 0;
 				ball.style.marginLeft = ballXPos + "px";
 				ball.style.marginTop = ballYPos + "px";
+				ballSpeed = 5.75;
 
 				waitForReady();
 			}
@@ -99,6 +119,7 @@ function moveBall() {
 				angle = Math.random() * 2.5 - 1.5; /*change angle of ball*/
 				clearInterval(ballInterval); /*stop moving right*/
 				ballInterval = setInterval(moveLeft, 0.01); /*start moving left*/
+				ballSpeed+=0.1;
 			} else {
 				score.innerHTML++;
 				clearInterval(ballInterval);
@@ -106,6 +127,7 @@ function moveBall() {
 				ballYPos = 0; /*reset ball y pst*/
 				ball.style.marginLeft = ballXPos + "px";
 				ball.style.marginTop = ballYPos + "px";
+				ballSpeed = 5.75;
 
 				waitForReady();
 			}
@@ -122,5 +144,5 @@ function moveBall() {
 
 let isMobile = navigator.userAgent.match(/iphone|android|blackberry/ig) ? true : false;
 if(isMobile) {
-    alert("Device is not supported.")
+    
 }

@@ -21,7 +21,7 @@ function searchProducts(searchTerm, database) {
 	results.sort((a, b) => b.relevance - a.relevance);
 
 	// Return the top 3 results
-	return results.slice(0, 3);
+	return results.slice(0, 5);
 }
 
 function calculateRelevance(product, description, searchTerm) {
@@ -46,6 +46,8 @@ inputBox.addEventListener("input", async (e) => {
 	const searchResults = searchProducts(searchTerm, database);
 
 	for (const searchResult in searchResults) {
+		if (searchResults[searchResult].relevance == 0) continue;
+
 		const product = searchResults[searchResult].product;
 		const description = searchResults[searchResult].description;
 		const pricePerOunce = searchResults[searchResult].pricePerOunce;

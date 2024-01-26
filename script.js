@@ -116,7 +116,7 @@ function changeContent(section) {
 	document.getElementById(section + "container").style.display = "flex";
 	document.getElementById(section + "container").style.filter = "blur(100px)";
 	currentSection = section;
-	slide();
+	slide();	
 }
 // /*times opened--------- */
 const timesOpened = document.getElementById("timesopened");

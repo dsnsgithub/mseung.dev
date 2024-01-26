@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>AYCE Tracker</h1>
+    <input type="number" placeholder="Price Paid" id="subtotalbox" oninput="change('subtotalbox','subtotal','Subtotal: ')" onchange="change('subtotalbox','subtotal','Subtotal: ')" min='0'> 
+    <input type="number" placeholder="Tip (%)" id="tipbox" oninput="change('tipbox','tip','Tip: ')" onchange="change('tipbox','tip','Tip: ')" min='0'>
+    <input type="number" placeholder="Zip Code (US)" id="zipbox" oninput="getSalesTax()">
+    <select id="options" name="options">
+        <option value="Meats and Seafood">Meats and Seafood</option>
+        <option value="Grain">Grain</option>
+        <option value="Bakery">Bakery</option>
+        <option value="Beverages">Beverages</option>
+        <option value="Produce">Produce</option>
+        <option value="Snacks">Snacks</option>
+        <option value="Dairy">Dairy</option>
+    </select>
+    <p id="subtotal">Subtotal: $0</p>
+    <p id="tax">Tax in Your City: UNKNOWN ZIP CODE</p>
+    <p id="tip">Tip: 0</p>
+    <p id="total">Total: $0.00</p>
+<script src="index.js"></script>
+</body>
+</html>

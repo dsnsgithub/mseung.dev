@@ -80,7 +80,7 @@ a {
     justify-content: center;
     align-items: center;
 }
-#projectcontainer {
+#projectscontainer {
     align-items: center;
 	flex-direction: column;
     display: none;
@@ -94,11 +94,11 @@ a {
     align-items: center;
 }
 
-#projectcontainer > :first-child {
+#projectscontainer > :first-child {
     margin-top: 5vh;
 }
 
-#projectcontainer > :last-child {
+#projectscontainer > :last-child {
     margin-bottom: 5vh;
 }
 .project {

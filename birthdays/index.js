@@ -4,8 +4,8 @@ const currentDate = document.getElementById("currentDate");
 const birthdaypeople = document.getElementById("birthdaypeople");
 const people = document.getElementById("people");
 
-var names = ["Eatsand", "BearRitto", "Kdev", "Daniel", "!Pegasus", "Igloo", "Robux", "Bello", "Aj.", "Spaceboy", "Wowza", "Tomato", "Alpha", "DSNS", "Tricky", "Ralph", "Sean", "ActFartworm", "Kyler", "Hxzu", "Sanik", "Olives", "Shlok", "Lapnim", "Jeisa", "Naux", "Catherine"];
-var dates = ["0614", "0614", "0111", "1110", "0402", "0402", "0305", "0818", "0427", "0708", "0618", "0724", "0303", "0517", "0408", "1006", "0224", "1119", "0123", "0106", "0521", "0405", "0814", "0203", "0908", "0920", "0127"]
+var names = ["Eatsand", "BearRitto", "Kdev", "Daniel", "!Pegasus", "Igloo", "Robux", "Bello", "Aj.", "Spaceboy", "Wowza", "Tomato", "Alpha", "DSNS", "Tricky", "Ralph", "Sean", "ActFartworm", "Kyler", "Hxzu", "Sanik", "Olives", "Shlok", "Lapnim", "Jeisa", "Naux", "Catherine", "Albert"];
+var dates = ["0614", "0614", "0111", "1110", "0402", "0402", "0305", "0818", "0427", "0708", "0618", "0724", "0303", "0517", "0408", "1006", "0224", "1119", "0123", "0106", "0521", "0405", "0814", "0203", "0908", "0920", "0127", "1229"]
 var colors = ["lightcoral", "lightsalmon", "lightyellow", "lightgreen", "lightblue", "pink"]
 var oldDates = [];
 var newDates = [];

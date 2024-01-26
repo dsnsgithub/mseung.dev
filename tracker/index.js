@@ -4,6 +4,7 @@ var locationY;
 
 var penDown = false;
 var pointerDown = false;
+var isNight = false;
 
 function enableTrail() {
 	createTrail();
@@ -29,7 +30,11 @@ function tracker(event) {
 
 function createTrail() {
 	var trail = document.createElement("div");
-	trail.classList.add("trail");
+	if(isNight) {
+		trail.classList.add("trailwhite");
+	} else {
+		trail.classList.add("trail");
+	}
 
 	trail.style.marginLeft = locationX;
 	trail.style.marginTop = locationY;
@@ -44,6 +49,7 @@ var date = new Date();
 if (date.getHours() >= 19 || date.getHours() <= 6) {
 	document.body.style.backgroundColor = "#070620";
 	document.body.style.color = "white";
+	isNight = true;
 }
 
 let isMobile = navigator.userAgent.match(/iphone|android|blackberry/ig) ? true : false;

@@ -11,19 +11,12 @@
     <input type="number" placeholder="Price Paid" id="subtotalbox" oninput="change('subtotalbox','subtotal','Subtotal: ')" onchange="change('subtotalbox','subtotal','Subtotal: ')" min='0'> 
     <input type="number" placeholder="Tip (%)" id="tipbox" oninput="change('tipbox','tip','Tip: ')" onchange="change('tipbox','tip','Tip: ')" min='0'>
     <input type="number" placeholder="Zip Code (US)" id="zipbox" oninput="getSalesTax()">
-    <select id="options" name="options">
-        <option value="Meats and Seafood">Meats and Seafood</option>
-        <option value="Grain">Grain</option>
-        <option value="Bakery">Bakery</option>
-        <option value="Beverages">Beverages</option>
-        <option value="Produce">Produce</option>
-        <option value="Snacks">Snacks</option>
-        <option value="Dairy">Dairy</option>
-    </select>
+    <input type="text" placeholder="Food Item" id="foodbox" oninput="getGroceryPrices()" onchange="getGroceryPrices()">
     <p id="subtotal">Subtotal: $0</p>
     <p id="tax">Tax in Your City: UNKNOWN ZIP CODE</p>
     <p id="tip">Tip: 0</p>
     <p id="total">Total: $0.00</p>
+    <div id="productcontainer"></div>
 <script src="index.js"></script>
 </body>
 </html>

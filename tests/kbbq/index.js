@@ -70,7 +70,7 @@ async function getGroceryPrices() {
                 for(let subitem in database[item]) {
                     for(let product in database[item][subitem]) {
                         if(product.includes(term)) {
-                            nodes.push(product)
+                            nodes.push(product);
                         }
                     }
                 }
@@ -86,9 +86,15 @@ async function getGroceryPrices() {
             var productName = document.createElement("p");
             var productDescription = document.createElement("p");
             var productPrice = document.createElement("p");
-            productCard.innerHTML = nodes[node];
-            productcontainer.appendChild(productCard)
 
+            submitButton.innerHTML = "Select";
+            productName.innerHTML = node;
+            submitButton.innerHTML = "Select";
+            productDescription.innerHTML = "Select";
+            productPrice.innerHTML = "Select";
+
+            productCard.appendChild();
+            productcontainer.appendChild(productCard);
         }
     }
 }

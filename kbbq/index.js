@@ -57,7 +57,6 @@ function updatePrice() {
 const foodbox = document.getElementById("foodbox");
 const productcontainer = document.getElementById("productcontainer");
 const inventory = document.getElementById("inventory");
-const searchAmount = document.getElementById("searchAmount").options;
 
 var nodes = [];
 var prices = [];
@@ -111,7 +110,7 @@ function select(button) {
 
     plates.type = "number";
     plates.min = 0;
-    plates.value = 1;
+    plates.placeholder = "# PLATES or ITEMS"
     sizeOptions.type = "range"
     sizeOptions.max = 30;
     sizeOptions.value = 0;
@@ -150,9 +149,8 @@ function select(button) {
     function recalculate(item) {
         eatenValue.value = 0;
         for(let i=0; i<priceValues.length; i++) {
-            console.log(item.value, priceValue)
             plates.value == "" ? 0 : plates.value;
-            eatenValue.value += parseFloat(item.value*priceValue*plates.value)
+            eatenValue.value += parseFloat((item.value*priceValue)*plates.value)
         }
         eatenValue.innerHTML = "Food Eaten Value: " + localCurrency + eatenValue.value.toFixed(2);
     }
@@ -195,7 +193,6 @@ function searchResults() {
     }
 }
 function handleSearchResults() {
-    nodesShown = searchAmount[searchAmount.selectedIndex].value;
 
     productcontainer.innerHTML = ""
     productcontainer.style.border = "";
@@ -233,4 +230,5 @@ function handleSearchResults() {
         productcontainer.style.border = "0.5vh solid black";
     }
 }
+
 /*----------------- */

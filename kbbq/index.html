@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AYCE TRACKER</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="space.css">
 </head>
 <body>
     <h1>AYCE Tracker</h1>
@@ -12,11 +13,22 @@
     <input type="number" placeholder="Tip (%)" id="tipbox" oninput="change('tipbox','tip','Tip: ')" onchange="change('tipbox','tip','Tip: ')" min='0'>
     <input type="number" placeholder="Zip Code (US)" id="zipbox" oninput="getSalesTax()">
     <input type="text" placeholder="Food Item" id="foodbox" oninput="getGroceryPrices()" onchange="getGroceryPrices()">
+    <p>
+        Items per Page:
+        <select onchange="handleSearchResults()" id="searchAmount">
+            <option value=5>5</option>
+            <option value=10>10</option>
+            <option value=15>15</option>
+            <option value=20>20</option>
+        </select>
+    </p>
     <p id="subtotal">Subtotal: $0</p>
     <p id="tax">Tax in Your City: UNKNOWN ZIP CODE</p>
     <p id="tip">Tip: 0</p>
     <p id="total">Total: $0.00</p>
-    <div id="productcontainer"></div>
+    <p id="eatenvalue">Food Eaten Value: $0.00</p>
+    <div id="inventory" class="flex column"></div>
+    <div id="productcontainer" class="flex column"></div>
 <script src="index.js"></script>
 </body>
 </html>

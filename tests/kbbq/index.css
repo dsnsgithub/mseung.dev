@@ -1,8 +1,0 @@
-#tip::after {
-    content: "%";
-}
-
-#productcontainer > * {
-    display: flex;
-    flex-direction: row;
-}

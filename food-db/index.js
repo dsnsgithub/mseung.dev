@@ -1,3 +1,11 @@
+// let highestPricePerOunce = 0;
+// let highestProduct = "";
+
+// let leastPricePerOunce = 100000;
+// let leastProduct = "";
+
+// let total = 0;
+
 function searchProducts(searchTerm, database) {
 	const results = [];
 
@@ -7,15 +15,32 @@ function searchProducts(searchTerm, database) {
 				const description = database[url][subURL][product]["description"];
 				const relevance = calculateRelevance(product, description, searchTerm);
 
+				// if (database[url][subURL][product]["pricePerOunce"] > highestPricePerOunce) {
+				// 	highestPricePerOunce = database[url][subURL][product]["pricePerOunce"];
+				// 	highestProduct = product;
+				// }
+
+				// if (database[url][subURL][product]["pricePerOunce"] < leastPricePerOunce) {
+				// 	leastPricePerOunce = database[url][subURL][product]["pricePerOunce"];
+				// 	leastProduct = product;
+				// }
+
+				// total += 1
+
 				results.push({
 					product,
 					relevance,
 					description,
-					pricePerOunce: database[url][subURL][product]["pricePerOunce"],
+					pricePerOunce: database[url][subURL][product]["pricePerOunce"]
 				});
 			}
 		}
 	}
+
+	// console.log(total)
+
+	// console.log(highestPricePerOunce, highestProduct);
+	// console.log(leastPricePerOunce, leastProduct);
 
 	// Sort results by relevance in descending order
 	results.sort((a, b) => b.relevance - a.relevance);
@@ -27,8 +52,27 @@ function searchProducts(searchTerm, database) {
 function calculateRelevance(product, description, searchTerm) {
 	// Simple relevance calculation based on the number of occurrences of the searchTerm in the description
 	const regex = new RegExp(searchTerm, "gi");
-	const matches = ((product + " " + description).match(regex) || []).length;
+	let matches = ((product.replace(/-/g, "") + product.replace(/-/g, " ")).match(regex) || []).length;
+
+	if (matches > 0) {
+		// The closer the title is to the search term, the higher the relevance
+		matches = matches / product.length;
+	}
+
 	return matches;
+}
+
+function capitalizeAndSpace(str) {
+	// Split the string at each hyphen
+	let words = str.split("-");
+
+	// Capitalize the first letter of each word
+	for (let i = 0; i < words.length; i++) {
+		words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+	}
+
+	// Join the words back together with a space
+	return words.join(" ");
 }
 
 let database = {};
@@ -37,7 +81,7 @@ const results = document.querySelector("#results");
 
 inputBox.addEventListener("input", async (e) => {
 	results.innerHTML = "";
-	
+
 	if (Object.keys(database).length == 0) {
 		database = await fetch("./db.json").then((response) => response.json());
 	}
@@ -54,12 +98,13 @@ inputBox.addEventListener("input", async (e) => {
 
 		// create a div box that displays these three properties
 		const productBox = document.createElement("div");
-		productBox.classList = "bg-slate-400 p-4 shadow-lg m-2 rounded-lg";
 		productBox.innerHTML = `
-                <h3 class="font-bold">${product}</h3>
-                <p>Description: ${description}</p>
-                <p class="font-bold" >Price per Ounce: $${pricePerOunce}</p>
-            `;
+			<div class="bg-gray-200 p-4 rounded-lg shadow-lg">
+				<h3 class="text-lg font-bold">${capitalizeAndSpace(product)}</h3>
+				<p>Description: ${description}</p>
+				<p class="font-bold">Price per Ounce: $${pricePerOunce}</p>
+			</div>
+		`;
 
 		results.append(productBox);
 	}

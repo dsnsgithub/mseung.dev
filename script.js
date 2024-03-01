@@ -240,8 +240,18 @@ if(date.getMonth() == 1) {
 	emojis.push("heart.png")
 	emojis.push("heart2.png")
 }
+if(date.getMonth() == 1 && date.getDate() == 29) {
+	emojis.push("leapday.png")
+}
 if(date.getMonth() >= 2 && date.getMonth() <= 4) {
 	emojis.push("flower.png")
+}
+if(date.getMonth() == 2) {
+	emojis.push("threeleaf.png");
+	emojis.push("threeleaf.png");
+	emojis.push("threeleaf.png");
+	emojis.push("fourleaf.png");
+
 }
 if(date.getMonth() == 0 && date.getDate() == 1) {
 	emojis.push("newyear.png")

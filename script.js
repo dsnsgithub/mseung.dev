@@ -145,19 +145,28 @@ var createInterval;
 
 function createEmoji() {
 	var emoji = document.createElement("img");
-	emoji.src = "/pictures/floatingemojis/" + emojis[Math.floor(Math.random() * emojis.length) + 0];
+	var emojiName = Math.floor(Math.random() * emojis.length) + 0
+	emoji.src = "/pictures/floatingemojis/" + emojis[emojiName];
+	emoji.classList.add(emojis[emojiName]);
+	emoji.classList.add("emoji");
 	emoji.style.position = "absolute";
 	emoji.style.top= "-125px";
 	emoji.style.left = "-125px";
 	emoji.style.zIndex = "-10";
 	emoji.style.userSelect = "none"
-	emoji.classList.add("emoji");
 	if(Math.random() < 0.5) {
 		angleXList.push(1);
 		angleYList.push(Number(Math.random().toFixed(1)));
 	} else {
 		angleYList.push(1);
 		angleXList.push(Number(Math.random().toFixed(1)));
+	}
+	if(date.getMonth() == 3 && emoji.className == "raindrop.png emoji") {
+		angleYList.pop()
+		angleYList.push(3)
+		angleXList.pop()
+		angleXList.push(0)
+		emoji.style.left = Math.floor(Math.random() * document.body.offsetWidth) + "px";
 	}
 	document.body.appendChild(emoji);
 }
@@ -207,6 +216,8 @@ function moveEmoji() {
 
 var aList = document.querySelectorAll("a");
 var date = new Date();
+date.setMonth(6)
+date.setDate(1)
 if (date.getHours() >= 19 || date.getHours() <= 6) {
 	document.body.style.backgroundColor = "#070620";
 	document.body.style.color = "white";
@@ -230,8 +241,12 @@ if (date.getHours() >= 19 || date.getHours() <= 6) {
 if(date.getMonth() == 9) {
 	emojis.push("pumpkin.png")
 }
-if(date.getMonth() == 10) {
+if(date.getMonth() == 10 || date.getMonth() == 8) {
 	emojis.push("fall.png")
+}
+
+if(date.getMonth() >= 5 || date.getMonth() <= 7) {
+	emojis.push("sun.png")
 }
 if(date.getMonth() == 11 || date.getMonth() == 0) {
 	emojis.push("snowflake.png")
@@ -243,7 +258,12 @@ if(date.getMonth() == 1) {
 if(date.getMonth() == 1 && date.getDate() == 29) {
 	emojis.push("leapday.png")
 }
-if(date.getMonth() >= 2 && date.getMonth() <= 4) {
+if(date.getMonth() == 3 && date.getDate() >= 13 && date.getDate() <= 21) {
+	emojis.push("cherryblossom.png")
+} else if(date.getMonth() == 3) {
+	emojis.push("raindrop.png")
+}
+if(date.getMonth() == 4) {
 	emojis.push("flower.png")
 }
 if(date.getMonth() == 2) {

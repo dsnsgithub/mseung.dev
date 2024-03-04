@@ -234,6 +234,7 @@ if (date.getHours() >= 19 || date.getHours() <= 6) {
 
 	
 	emojis.splice(emojis.indexOf("sun.png"), 1);
+	console.log(emojis)
 	emojis.push("moon.png");
 }
 if(date.getMonth() == 9) {
@@ -243,7 +244,7 @@ if(date.getMonth() == 10 || date.getMonth() == 8) {
 	emojis.push("fall.png")
 }
 
-if(date.getMonth() >= 5 || date.getMonth() <= 7) {
+if(date.getMonth() >= 5 && date.getMonth() <= 7) {
 	emojis.push("sun.png")
 }
 if(date.getMonth() == 11 || date.getMonth() == 0) {

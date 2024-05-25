@@ -1,0 +1,25 @@
+{
+    "category1": {
+        "$200": "This is another word for the event of 2 or more objects hitting each other.",
+        "$400": "This is the opposite of kinetic energy.",
+        "$600": "This is the instrument used to measure newton forces.",
+        "$800": "An object reaches this point when it breaks.",
+        "$1000": "An object reaches this point when it permanently deforms."
+    },
+    "category2": {
+        "$200": "This is what amplitude does to sound.",
+        "$400": "This is the way you find the pitch of a sound wave in 2D.",
+        "$600": "This is the tool you use to measure sound waves in 2D.",
+        "$800": "This is what sound needs to travel",
+        "$1000": "This is the sound you will hear when the frequency is 100 hz and the amplitude is 500 hz."
+    },
+    "category3": {
+
+    },
+    "category4": {
+
+    },
+    "category5": {
+
+    }
+}

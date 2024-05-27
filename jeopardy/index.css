@@ -3,6 +3,9 @@
     color: white;
     font-family: Swiss, sans-serif;
 }
+body {
+    overflow: hidden;
+}
 
 @font-face {
     font-family: Swiss;
@@ -55,10 +58,45 @@
     height:100vh;
     background-color: #18168F;
     display:none;
+    justify-content: center;
+    position: absolute;
 }
 
 #question {
+    height: 100vh;
+    width: 100vw; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    max-width: 60%;
     font-family: Korinna, sans-serif !important;
     font-size:5rem;
     text-shadow: 5px 5px 5px black;
+}
+
+#titlePage {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh;
+    width: 100vw; 
+    background-color: midnightblue;
+    position: absolute;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+#title {
+    position: absolute;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes slideToTop {
+    from{bottom: 0vh;}
+    to {bottom: 120vh}
+}
+@keyframes slideToRight {
+    from{margin-top: 0vh; rotate: 0deg;}
+    to {margin-top: 400vh; rotate: 360deg}
 }

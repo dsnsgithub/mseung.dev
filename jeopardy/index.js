@@ -23,7 +23,7 @@ var db = [
   "This is the tool you use to measure sound waves in 2D.",
   "This is what sound needs to travel.",
   "This is the sound you will hear when the frequency is 100 hz and the amplitude is 500 hz.",
-  "The two poles on a magnet",
+  "The two poles on a magnet.",
   "A magnet that can turn on and off using electricity.",
   "This is what happens to the magnets if both of their north poles are facing each other.",
   "These are the necessary components of a speaker.",
@@ -37,7 +37,7 @@ var db = [
   "Humans have this amount of chromosomes in normal cells.",
   "This is the shapes of the bottom set of alleles on a chromosome, to get heavy muscled cows, using a diagram.",
   "This is the nickname of the protein GDFA.",
-  "He is the son of Jim (the cow)",
+  "He is the son of Jim. (the cow)",
   "What is a collision?",
   "What is potential energy?",
   "What is a force gauge? (spring scale)",
@@ -79,7 +79,7 @@ function intro() {
   revealInterval = setInterval(function () {
     if (newSections.length <= 0) {
       clearInterval(revealInterval);
-      for (let i = 0; i < sections.length - 1; i++) {
+      for (let i = 0; i < sections.length; i++) {
         sections[i].style.cursor = "pointer";
         sections[i].id = section;
         function goHome() {
@@ -94,7 +94,6 @@ function intro() {
           board.style.display = "none";
           question.innerHTML = db[Number(this.id)];
           questionPage.addEventListener("click", function () {
-            console.log(thing);
             question.innerHTML = db[Number(thing.id) + 25];
             questionPage.addEventListener("click", goHome);
           });

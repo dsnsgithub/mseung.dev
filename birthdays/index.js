@@ -4,8 +4,8 @@ const currentDate = document.getElementById("currentDate");
 const birthdaypeople = document.getElementById("birthdaypeople");
 const people = document.getElementById("people");
 
-var names = ["Ethan", "Nathan V", "Mackenzie", "David Y.", "Aarav", "Chase", "Advay", "Serena", "Atharv", "Max S.", "Marcus", "Katelyn", "Aditya", "Dominic", "Nathan S.", "Ralph", "Sean", "Julian", "Kyler", "Matthew Z.", "Caleb", "Oliver", "Jheyla", "Shlok", "Noah", "Jeisa", "Yan Yan", "Catherine", "Albert", "David Z", "Max H.", "Saad", "Claire", "Rylee"];
-var dates = ["0614", "0614", "0111", "1110", "0402", "0402", "0305", "0818", "0427", "0708", "0618", "0724", "0303", "0517", "0408", "1006", "0224", "1119", "0123", "0106", "0521", "0405", "0405", "0814", "0203", "0908", "0920", "0127", "1229", "0720", "0421", "0120", "0413", "0702"]
+var names = ["Ethan", "Nathan V", "Mackenzie", "David Y.", "Aarav", "Chase", "Advay", "Serena", "Atharv", "Max S.", "Marcus", "Katelyn", "Aditya", "Dominic", "Nathan S.", "Ralph", "Sean", "Julian", "Kyler", "Matthew Z.", "Caleb", "Oliver", "Jheyla", "Shlok", "Noah", "Jeisa", "Yan Yan", "Catherine", "Albert", "David Z", "Max H.", "Saad", "Claire", "Rylee", "Swayam"];
+var dates = ["0614", "0614", "0111", "1110", "0402", "0402", "0305", "0818", "0427", "0708", "0618", "0724", "0303", "0517", "0408", "1006", "0224", "1119", "0123", "0106", "0521", "0405", "0405", "0814", "0203", "0908", "0920", "0127", "1229", "0720", "0421", "0120", "0413", "0702", "1117"]
 var colors = ["lightcoral", "lightsalmon", "lightyellow", "lightgreen", "lightblue", "pink"]
 var oldDates = [];
 var newDates = [];

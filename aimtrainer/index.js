@@ -19,6 +19,7 @@ var wait2;
 var trail;
 var locationX;
 var locationY;
+var appleColor ="black"
 
 function tracker(event) {
 	var x = event.clientX;
@@ -33,7 +34,8 @@ function createApple(size) {
 	trail = document.createElement("div");
 	trail.classList.add("trail");
 
-	trail.style.backgroundColor = "black";
+	trail.style.backgroundColor = document.body.style.backgroundColor == "white" ? "black" : "white";
+	console.log(document.body.style.backgroundColor);
 	trail.style.width = size + "vw";
 	trail.style.height = size + "vw";
 	trail.style.borderRadius = size + "vw";
@@ -105,4 +107,5 @@ var date = new Date();
 if (date.getHours() >= 19 || date.getHours() <= 6) {
 	document.body.style.backgroundColor = "#070620";
 	document.body.style.color = "white";
+	appleColor = "white";
 }

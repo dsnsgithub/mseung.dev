@@ -298,6 +298,12 @@ async function fetchLocation(lat,lon) {
     console.log(data)
 }
 
+function changeSkyColor() {
+    
+}
+
+// offset
+
 const firstMainProject = document.getElementById('main-projects-container').children[0].getBoundingClientRect();
 const lastMainProject = document.getElementById('main-projects-container').children[document.getElementById('main-projects-container').children.length-1].getBoundingClientRect();
 const bodyDimensions = document.getElementById("other-stuff").getBoundingClientRect();

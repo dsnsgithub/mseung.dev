@@ -158,7 +158,7 @@ a {
     transition: 0.3s;
 }
 
-#socials {
+#notsocials {
     width: 250px;
     height: 22.5%;
     display: flex;
@@ -169,7 +169,7 @@ a {
     justify-content: space-evenly;
 }
 
-#socials > * {
+#notsocials > * {
     cursor: pointer;
 }
 

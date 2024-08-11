@@ -84,11 +84,25 @@ body {
 }
 
 #pictureframe {
+    position: relative;
     width: 100%;
     height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 25%;
+    
+}
+
+
+.outside {
+    position: absolute;
+    width: 600px;
+    height: 500px;
+    background-color: blue;
+    z-index: 1;
 }
 
 .circlebutton {

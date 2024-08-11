@@ -280,27 +280,74 @@
 // 	emojis.push("present.png")
 // }
 
-var lat = 0;
-var lon = 0;
 
-function getLocation() {
+async function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((resp) => {fetchLocation(resp.coords.latitude,resp.coords.longitude)});
+        const getCoords = async () => {
+            const pos = await new Promise((resolve, reject) => {
+              navigator.geolocation.getCurrentPosition(resolve, reject);
+            });
+        
+            return {
+              lon: pos.coords.longitude,
+              lat: pos.coords.latitude,
+            };
+        };
+
+        return await getCoords()
     } else {
         alert("Geolocation is not supported by this browser.");
     }
 }
-getLocation()
+
 async function fetchLocation(lat,lon) {
-    console.log(lat, lon)
     const res = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=c95438ae35d06a4034d5edf752024f48&units=imperial');
-    const data = await res.json();
-    console.log(data)
+    return await res.json();
 }
 
-function changeSkyColor() {
+const pictureFrame = document.getElementById("pictureframe");
+const loading = document.getElementById("loading")
+async function changeSkyColor(data) {
+    const date = new Date();
+    const seconds = date.getTime() / 1000;
+    var timeQuery = '';
+    var weatherQuery = '';
+    if(seconds >= data.sys.sunrise && seconds <= data.sys.sunrise + 600) {
+        console.log(sec)
+        timeQuery = 'sunrise'
+    } else if (seconds >= data.sys.sunset && seconds <= data.sys.sunset + 600) {
+        timeQuery = 'sunset'
+    } else if (seconds >= data.sys.sunrise + 600 && seconds <= data.sys.sunset) {
+        timeQuery = 'sunny day'
+    } else if (seconds <= data.sys.sunrise || seconds >= data.sys.sunset + 600) {
+        console.log(seconds, data.sys.sunset + 600)
+        timeQuery = 'dark%20night';
+    }
+    console.log(data)
+    console.log([timeQuery,weatherQuery])
+    weatherQuery = data.weather[0].description.split(' ').join('%20');
+    console.log(timeQuery,weatherQuery)
+    const res = await fetch('https://cors.dsns.dev/server.mseung.dev/?query=' + timeQuery + "%20" + weatherQuery + "%20nature" );
     
+   /** @type {String[]} */
+    const imgURLS = await res.json();
+    const cutURLS = imgURLS.slice(1,imgURLS.length-1)
+    const randomNumber = Math.floor(Math.random() * cutURLS.length)
+    const imageURL = cutURLS[randomNumber]
+    pictureFrame.style.backgroundImage = `url(${imageURL})`
+    loading.style.display = "none"
 }
+
+async function run() {
+    const coords = await getLocation()
+    const data = await fetchLocation(coords["lat"], coords["lon"])
+    changeSkyColor(data);
+    setInterval(async () => {
+        await changeSkyColor(data)
+    }, 60000)
+}
+
+run();
 
 // offset
 

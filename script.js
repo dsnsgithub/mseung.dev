@@ -412,7 +412,7 @@ function mainProjectsOffset() {
     for(let topic of topics) {
         topic.style.marginTop = topOffset + 'px'
     }
-    document.getElementById('times').style.left = (bodyDimensions.width - 1250) / 2 + 'px';
+    document.getElementById('times').style.left = (bodyDimensions.width - document.getElementById('main-container').offsetWidth) / 2 + 'px';
     document.getElementById('times').style.top = bodyDimensions.height - parseInt(document.getElementById('times').offsetHeight) + 'px';
 }
 document.addEventListener('DOMContentLoaded', function () {

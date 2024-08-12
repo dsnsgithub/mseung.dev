@@ -214,3 +214,38 @@ body {
     border: 2px solid #e8be4a;
     border-radius: 10px;
 }
+
+@media screen and (max-width: 1250px) {
+    #main-container {
+        width: 100%
+    }
+}
+@media screen and (max-width: 970px) {
+    #main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    #other-stuff {
+        width: 300px;
+        position: static;
+    }
+    #about-me {
+        position: static;
+        min-height: 385px;
+    }
+}
+@media screen and (max-width: 695px) {
+
+    #other-stuff {
+        width: 300px;
+        position: static;
+    }
+    #about-me {
+        position: static;
+        min-height: 385px;
+    }
+
+    #main-projects {
+        width: 90%;
+    }
+}

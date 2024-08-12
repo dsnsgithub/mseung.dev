@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
@@ -7,7 +8,8 @@
 
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="Max's Bio">
-	<meta property="og:description" content="Definitely one of the websites ever containing silly games and stuff I make.">
+	<meta property="og:description"
+		content="Definitely one of the websites ever containing silly games and stuff I make.">
 	<meta name="description" content="Definitely one of the websites ever containing silly games and stuff I make.">
 	<meta property="og:url" content="https://mseung.dev/">
 	<meta property="og:image" content="https://mseung.dev/pictures/floatingemojis/sun.png">
@@ -16,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<script src="https://kit.fontawesome.com/d7bc5eb110.js" crossorigin="anonymous"></script>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -29,200 +31,151 @@
 		gtag('config', 'G-ETL119JD39');
 	</script>
 </head>
-<body>
-    <div id="menubutton" onclick="slide()">
-        <div class="menuline"></div>
-        <div class="menuline"></div>
-        <div class="menuline"></div>
-    </div>
-    <div id="menu"></div>
-    <div id="menustuff" class="allsections">
-        <div class="button" onclick="changeContent('main')">Home</div>
-        <div class="button" onclick="changeContent('projects')">Projects</div>
-        <div class="button" onclick="changeContent('socials')">Socials</div>
-    </div>
 
-	<div style="position: absolute; bottom: 0; display: flex; flex-direction: column;">
-		Times You Visited:
-		<p id="timesopened"></p>
+<body>
+	<div id="times">
+		<p>Times You Visited:</p>
+		<h2 id="timesopened"></h2>
 		<p id="firstvisited"></p>
 	</div>
+	<div id="season-background"></div>
+	<div id="main-container">
+		<div id="other-stuff">
+			<div id="about-me">
+				<div id="profile-banner"></div>
+				<div style="padding: 15px; display: flex; gap: 10px; flex-direction: column; height: 50%">
+					<div class="textgrouper">
+						<h1>Max Seung</h1>
+						<sub>📍 California</sub>
+					</div>
 
-    <div class="container" id="maincontainer">
-        <h1 id="name"></h1>
-        <div id="skills">
-			<div class="skill fab fa-python" onclick="location.href = '/skills/'"></div>
-			<div class="skill fab fa-html5" onclick="location.href = '/skills/'"></div>
-			<div class="skill fab fa-css3" onclick="location.href = '/skills/'"></div>
-			<div class="skill fab fa-js" onclick="location.href = '/skills/'"></div>
+					<p>A web designer and app designer for Android and iOS based in California.</p>
+					<p>I have an interest for gaming.</p>
+
+					<div style="width: 100%; height: 40px; display: flex; gap: 10px; align-self: flex-end;">
+						<button class="circlebutton"><a href="https://www.youtube.com/@max-the-penguin/"><img
+									src="./pictures/youtube.png" alt="" style="width: 90%;"></a></button>
+						<button class="circlebutton"><a href="https://github.com/maxas10"><img
+									src="./pictures/github.png" alt="" style="width: 90%;"></a></button>
+						<button class="circlebutton"><a href="/support/"><img src="./pictures/mail.png" alt=""
+									style="width: 90%;"></a></button>
+					</div>
+				</div>
+			</div>
 		</div>
-    </div>
+		<div id="main-projects">
+			<div id='main-projects-container'>
+				<div id="pictureframe" class="topic">
+					<img src="./pictures/main-site-images/mainframe.png" alt="" style="width:100%; z-index: 4;">
+					<img src="./pictures/loading.gif" id="loading" style="position: absolute; width: 75px">
+					<p id="weatherdesc"></p>
+				</div>
 
-    <div class="container" id="projectscontainer">
-        <a href="/changelog/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>Changelog</h1>
-					<p>MSEUNG.dev's history from start to now.</p>
+				<h1 style="text-decoration: underline;" class="topic">Notable Projects</h1>
+				<div style="width: 100%; gap: 25px; display: grid;">
+					<div class="project-section">
+						<h2>Max's Calculator (NEW)</h2>
+						<p>I created a calculator that can also convert currency, calculate tips and taxes in
+							restaurants, and get grocery prices of foods. (RELEASING ON ANDROID SOON, OUT ON iOS)</p>
+						<div style="display: flex; flex-direction: row; gap: 10px">
+							<div class="language">React Native</div>
+							<div class="language">Expo</div>
+							<div class="platform">Android</div>
+							<div class="platform">iOS</div>
+						</div>
+						<div style="display: flex; flex-direction: row; gap: 15px; width: 100%;">
+							<a href=""></a><img src="./pictures/main-site-images/appstore.png" alt=""
+								style="width: 45%; cursor: pointer;"
+								onclick="location.href='https://apps.apple.com/us/app/maxs-calculator/id6618135955'">
+							<img src="./pictures/main-site-images/googleplay.png" alt=""
+								style="width: 45%; cursor: pointer;"
+								onclick='alert("This app will be released on Google Play soon!")'>
+						</div>
+						<img src="./pictures/main-site-images/maxcalculator1.png" alt="" style="width: 100%">
+					</div>
 				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/changelog.PNG">
-			</div>
-		</a>
-		<a href="https://maxas10.github.io/"class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>My Old Site</h1>
-					<div>I had copied this layout word for word off of a tutorial in 2020.</div>
+				<div style="width: 100%; gap: 25px; display: grid; ">
+					<div class="project-section">
+						<h2>mseung.dev</h2>
+						<p>mseung.dev is a website designed to show my portfolio in a simple way, but also be artistic
+							and funny.</p>
+						<div style="display: flex; flex-direction: row; gap: 10px">
+							<div class="language">HTML 5</div>
+							<div class="language">CSS 3</div>
+							<div class="language">Javascript (Vanilla)</div>
+						</div>
+						<img src="./pictures/main-site-images/mseung.png" alt="" style="width: 100%; cursor: pointer;" onclick='window.location.href="https://github.com/dsnsgithub/mseung.dev"'>
+					</div>
 				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/maxas10.PNG">
-			</div>
-		</a>
-		<a href="/stock/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>Stock Trading Simulator</h1>
-					<p>Invest in two companies! Get rich! Get even richer with brokers! But be aware, the stock price could change at any time.</p>
+				<div style="width: 100%; gap: 25px; display: grid; ">
+					<div class="project-section">
+						<h2>onlyeggrolls.com</h2>
+						<p>With my brother, we designed and made the pages of OnlyEggrolls, a proof of concept egg roll
+							selling buisness.</p>
+						<div style="display: flex; flex-direction: row; gap: 10px">
+							<div class="language">HTML 5</div>
+							<div class="language">CSS 3</div>
+							<div class="language">Javascript (Vanilla)</div>
+							<div class="language">PHP</div>
+						</div>
+						<img src="./pictures/main-site-images/onlyeggrolls.png" alt="" style="width: 100%; cursor: pointer;" onclick='window.location.href="https://onlyeggrolls.com"'> 
+					</div>
 				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/sts.PNG">
-			</div>
-		</a>
-		<a href="/pong/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>Ponged</h1>
-					<p>(DOES NOT WORK ON MOBILE) Hold WASD or the arrow keys to move the paddle.</p>
-				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/pong.PNG">
-			</div>
-		</a>
-		<a href="/packjacksimple/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>Packjack</h1>
-					<p>Randomizer game to feed your gambling addiction.</p>
-				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/packjack.PNG">
-			</div>
-		</a>
-		<a href="/tracker/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>Doodle Board</h1>
-					<p>(DOES NOT WORK ON MOBILE) Click to toggle a black pen to draw something on a canvas. Reset the board by refreshing the page.</p>
-				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/tracker.PNG">
-			</div>
-		</a>
-		<a href="/aimtrainer/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>Aim Trainer</h1>
-					<p>(WORKS VERY BADLY ON MOBILE) Train your aim!</p>
-				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/aimtrainer.PNG">
-			</div>
-		</a>
-		<a href="/twentydollar/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>Twenty Dollar Website</h1>
-					<p>Create your own music! Inspired by Thirty Dollar Website.</p>
-				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/twentydollar.PNG">
-			</div>
-		</a>
-		<a href="/movebox/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>Movebox</h1>
-					<p>(DOES NOT WORK ON MOBILE) Move a box to the green square while dodging missiles! Inspired by Sokoban.</p>
-				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/movebox.PNG">
-			</div>
-		</a>
-		<a href="/birthdays/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>Birthdays</h1>
-					<p>Closest birthdays will be moved to the front. Celebrated in local time.</p>
-				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/birthdays.PNG">
-			</div>
-		</a>
-		<a href="/zombie/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>Max's Zombies</h1>
-					<p>Manage your ammo while shooting zombies! Have depression!</p>
-				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/zombies.PNG">
-			</div>
-		</a>
-		<a href="/newyear/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>New Year Countdown</h1>
-					<p>A reliable New Year countdown without any promotions or advertisements.</p>
-				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/newyear.png">
-			</div>
-		</a>
-		<a href="/kbbq/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>All You Can Eat Tracker (IN DEVELOPMENT)</h1>
-					<p>Customizable plan to keep track of all the food you ate! Also a calculator!</p>
-				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/ayce.png">
-			</div>
-		</a>
-		<a href="/hack/" class="project">
-			<div class="left">
-				<div class="innerleft">
-					<h1>Doxx this Website!</h1>
-					<p>Don't do it...</p>
-				</div>
-			</div>
-			<div class="right">
-				<img src="./pictures/buttonimages/hack.PNG">
-			</div>
-		</a>
-    </div>
 
-	<div class="container" id="socialscontainer">
-		<div id="notsocials">
-			<div class="social fab fa-github" onclick="location.href = 'https://github.com/dsnsgithub/mseung.dev/'"></div>
-			<div class="social fab fa-youtube" onclick="location.href = 'https://www.youtube.com/@max-the-penguin'"></div>
-			<div class="social fas fa-envelope" onclick="location.href = '/support/'"></div>
+				<h1 style="text-decoration: underline;" class="topic">Other Works</h1>
+				<div style="width: 100%; gap: 25px; display: grid; ">
+					<div class="project-section">
+						<h2>Birthdays</h2>
+						<p>Closest birthdays will be moved to the front. Celebrated in local time.</p>
+						<div style="display: flex; flex-direction: row; gap: 10px">
+							<div class="language">HTML 5</div>
+							<div class="language">CSS 3</div>
+							<div class="language">Javascript (Vanilla)</div>
+						</div>
+						<a href="/birthdays/"><img src="./pictures/buttonimages/birthdays.PNG" alt="" style="width: 100%; cursor: pointer;"> </a>
+					</div>
+				</div>
+				<div style="width: 100%; gap: 25px; display: grid; ">
+					<div class="project-section">
+						<h2>Movebox</h2>
+						<p>(DOES NOT WORK ON MOBILE) Move a box to the green square while dodging missiles! Inspired by Sokoban.</p>
+						<div style="display: flex; flex-direction: row; gap: 10px">
+							<div class="language">HTML 5</div>
+							<div class="language">CSS 3</div>
+							<div class="language">Javascript (Vanilla)</div>
+						</div>
+						<a href="/movebox"><img src="./pictures/buttonimages/movebox.PNG" alt="" style="width: 100%; cursor: pointer;"> </a>
+					</div>
+				</div>
+				<div style="width: 100%; gap: 25px; display: grid; ">
+					<div class="project-section">
+						<h2>Stock Trading Simulator</h2>
+						<p>Invest in two companies! Get rich! Get even richer with brokers! But be aware, the stock price could change at any time.</p>
+						<div style="display: flex; flex-direction: row; gap: 10px">
+							<div class="language">HTML 5</div>
+							<div class="language">CSS 3</div>
+							<div class="language">Javascript (Vanilla)</div>
+						</div>
+						<a href="/stock/"><img src="./pictures/buttonimages/sts.PNG" alt="" style="width: 100%; cursor: pointer;"></a> 
+					</div>
+				</div>
+				<div style="width: 100%; gap: 25px; display: grid; ">
+					<div class="project-section">
+						<h2>Max's Zombies</h2>
+						<p>Manage your ammo while shooting zombies! Have depression!</p>
+						<div style="display: flex; flex-direction: row; gap: 10px">
+							<div class="language">HTML 5</div>
+							<div class="language">CSS 3</div>
+							<div class="language">Javascript (Vanilla)</div>
+						</div>
+						<img src="./pictures/buttonimages/zombies.PNG" alt="" style="width: 100%; cursor: pointer;" onclick='window.location.href="/stock/"'> 
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<script src="script.js"></script>
 </body>
+
 </html>

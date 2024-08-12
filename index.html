@@ -33,16 +33,14 @@
 </head>
 
 <body>
-
-	<!-- <div style="position: absolute; bottom: 0; display: flex; flex-direction: column;">
-		Times You Visited:
-		<p id="timesopened"></p>
+	<div id="times">
+		<p>Times You Visited:</p>
+		<h2 id="timesopened"></h2>
 		<p id="firstvisited"></p>
-	</div> -->
-
+	</div>
+	<div id="season-background"></div>
 	<div id="main-container">
 		<div id="other-stuff">
-
 			<div id="about-me">
 				<div id="profile-banner"></div>
 				<div style="padding: 15px; display: flex; gap: 10px; flex-direction: column; height: 50%">
@@ -50,62 +48,127 @@
 						<h1>Max Seung</h1>
 						<sub>📍 California</sub>
 					</div>
-	
+
 					<p>A web designer and app designer for Android and iOS based in California.</p>
 					<p>I have an interest for gaming.</p>
-					
+
 					<div style="width: 100%; height: 40px; display: flex; gap: 10px; align-self: flex-end;">
-						<button class="circlebutton"><a href="https://www.youtube.com/@max-the-penguin/"><img src="./pictures/youtube.png" alt="" style="width: 90%;"></a></button>
-						<button class="circlebutton"><a href="https://github.com/maxas10"><img src="./pictures/github.png" alt="" style="width: 90%;"></a></button>
-						<button class="circlebutton"><a href="/support/"><img src="./pictures/mail.png" alt="" style="width: 90%;"></a></button>
+						<button class="circlebutton"><a href="https://www.youtube.com/@max-the-penguin/"><img
+									src="./pictures/youtube.png" alt="" style="width: 90%;"></a></button>
+						<button class="circlebutton"><a href="https://github.com/maxas10"><img
+									src="./pictures/github.png" alt="" style="width: 90%;"></a></button>
+						<button class="circlebutton"><a href="/support/"><img src="./pictures/mail.png" alt=""
+									style="width: 90%;"></a></button>
 					</div>
 				</div>
 			</div>
-
 		</div>
 		<div id="main-projects">
 			<div id='main-projects-container'>
-				<div id="pictureframe" >
+				<div id="pictureframe" class="topic">
 					<img src="./pictures/main-site-images/mainframe.png" alt="" style="width:100%; z-index: 4;">
 					<img src="./pictures/loading.gif" id="loading" style="position: absolute; width: 75px">
+					<p id="weatherdesc"></p>
 				</div>
-				<h1 style="text-decoration: underline;">Notable Projects</h1>
+
+				<h1 style="text-decoration: underline;" class="topic">Notable Projects</h1>
 				<div style="width: 100%; gap: 25px; display: grid;">
 					<div class="project-section">
 						<h2>Max's Calculator (NEW)</h2>
-						<p>I created a calculator that can also convert currency, calculate tips and taxes in restaurants, and get grocery prices of foods. (RELEASING ON <span class="important">ANDROID</span> SOON, OUT ON ANDROID)</p>
+						<p>I created a calculator that can also convert currency, calculate tips and taxes in
+							restaurants, and get grocery prices of foods. (RELEASING ON ANDROID SOON, OUT ON iOS)</p>
 						<div style="display: flex; flex-direction: row; gap: 10px">
 							<div class="language">React Native</div>
 							<div class="language">Expo</div>
 							<div class="platform">Android</div>
 							<div class="platform">iOS</div>
 						</div>
+						<div style="display: flex; flex-direction: row; gap: 15px; width: 100%;">
+							<a href=""></a><img src="./pictures/main-site-images/appstore.png" alt=""
+								style="width: 45%; cursor: pointer;"
+								onclick="location.href='https://apps.apple.com/us/app/maxs-calculator/id6618135955'">
+							<img src="./pictures/main-site-images/googleplay.png" alt=""
+								style="width: 45%; cursor: pointer;"
+								onclick='alert("This app will be released on Google Play soon!")'>
+						</div>
 						<img src="./pictures/main-site-images/maxcalculator1.png" alt="" style="width: 100%">
 					</div>
 				</div>
-				<div style="width: 100%; gap: 25px; display: grid; cursor: pointer;" onclick='window.location.href="https://github.com/dsnsgithub/mseung.dev"'>
+				<div style="width: 100%; gap: 25px; display: grid; ">
 					<div class="project-section">
 						<h2>mseung.dev</h2>
-						<p>mseung.dev is a website designed to show my portfolio in a simple way, but also be artistic and funny.</p>
+						<p>mseung.dev is a website designed to show my portfolio in a simple way, but also be artistic
+							and funny.</p>
 						<div style="display: flex; flex-direction: row; gap: 10px">
 							<div class="language">HTML 5</div>
 							<div class="language">CSS 3</div>
 							<div class="language">Javascript (Vanilla)</div>
 						</div>
-						<img src="./pictures/main-site-images/mseung.png" alt="" style="width: 100%">
+						<img src="./pictures/main-site-images/mseung.png" alt="" style="width: 100%; cursor: pointer;" onclick='window.location.href="https://github.com/dsnsgithub/mseung.dev"'>
 					</div>
 				</div>
-				<div style="width: 100%; gap: 25px; display: grid; cursor: pointer;" onclick='window.location.href="https://onlyeggrolls.com"'>
+				<div style="width: 100%; gap: 25px; display: grid; ">
 					<div class="project-section">
 						<h2>onlyeggrolls.com</h2>
-						<p>With my brother, we designed and made the pages of OnlyEggrolls, a proof of concept egg roll selling buisness.</p>
+						<p>With my brother, we designed and made the pages of OnlyEggrolls, a proof of concept egg roll
+							selling buisness.</p>
 						<div style="display: flex; flex-direction: row; gap: 10px">
 							<div class="language">HTML 5</div>
 							<div class="language">CSS 3</div>
 							<div class="language">Javascript (Vanilla)</div>
 							<div class="language">PHP</div>
 						</div>
-						<img src="./pictures/main-site-images/onlyeggrolls.png" alt="" style="width: 100%">
+						<img src="./pictures/main-site-images/onlyeggrolls.png" alt="" style="width: 100%; cursor: pointer;" onclick='window.location.href="https://onlyeggrolls.com"'> 
+					</div>
+				</div>
+
+				<h1 style="text-decoration: underline;" class="topic">Other Works</h1>
+				<div style="width: 100%; gap: 25px; display: grid; ">
+					<div class="project-section">
+						<h2>Birthdays</h2>
+						<p>Closest birthdays will be moved to the front. Celebrated in local time.</p>
+						<div style="display: flex; flex-direction: row; gap: 10px">
+							<div class="language">HTML 5</div>
+							<div class="language">CSS 3</div>
+							<div class="language">Javascript (Vanilla)</div>
+						</div>
+						<a href="/birthdays/"><img src="./pictures/buttonimages/birthdays.PNG" alt="" style="width: 100%; cursor: pointer;"> </a>
+					</div>
+				</div>
+				<div style="width: 100%; gap: 25px; display: grid; ">
+					<div class="project-section">
+						<h2>Movebox</h2>
+						<p>(DOES NOT WORK ON MOBILE) Move a box to the green square while dodging missiles! Inspired by Sokoban.</p>
+						<div style="display: flex; flex-direction: row; gap: 10px">
+							<div class="language">HTML 5</div>
+							<div class="language">CSS 3</div>
+							<div class="language">Javascript (Vanilla)</div>
+						</div>
+						<a href="/movebox"><img src="./pictures/buttonimages/movebox.PNG" alt="" style="width: 100%; cursor: pointer;"> </a>
+					</div>
+				</div>
+				<div style="width: 100%; gap: 25px; display: grid; ">
+					<div class="project-section">
+						<h2>Stock Trading Simulator</h2>
+						<p>Invest in two companies! Get rich! Get even richer with brokers! But be aware, the stock price could change at any time.</p>
+						<div style="display: flex; flex-direction: row; gap: 10px">
+							<div class="language">HTML 5</div>
+							<div class="language">CSS 3</div>
+							<div class="language">Javascript (Vanilla)</div>
+						</div>
+						<a href="/stock/"><img src="./pictures/buttonimages/sts.PNG" alt="" style="width: 100%; cursor: pointer;"></a> 
+					</div>
+				</div>
+				<div style="width: 100%; gap: 25px; display: grid; ">
+					<div class="project-section">
+						<h2>Max's Zombies</h2>
+						<p>Manage your ammo while shooting zombies! Have depression!</p>
+						<div style="display: flex; flex-direction: row; gap: 10px">
+							<div class="language">HTML 5</div>
+							<div class="language">CSS 3</div>
+							<div class="language">Javascript (Vanilla)</div>
+						</div>
+						<img src="./pictures/buttonimages/zombies.PNG" alt="" style="width: 100%; cursor: pointer;" onclick='window.location.href="/stock/"'> 
 					</div>
 				</div>
 			</div>

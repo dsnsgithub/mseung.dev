@@ -1,18 +1,21 @@
 * {
     margin: 0;
-    font-family: 'Raleway',sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 h1 {
     font-weight: 600;
     font-size: 1.35rem;
 }
+
 sub {
     font-weight: 400;
 }
+
 p {
     font-size: 0.9rem;
 }
+
 a {
     text-decoration: none;
     display: flex;
@@ -20,18 +23,49 @@ a {
     color: black;
     justify-content: center;
 }
+
 body {
     display: flex;
     justify-content: center;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 7.5px;
+    opacity: 0.5;
+}
+
+::-webkit-scrollbar-track {
+    opacity: 0.5;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#season-background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-position: center;
+    background-size: cover;
+    z-index: -5;
 }
 
 #main-container {
-   display: flex;
-   flex-direction: row; 
-   gap: 3vw;
-   width: 1250px;
-   background-color: #f5f5f5;
-   justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+    width: 1250px;
+    background-color: rgba(245, 245, 245, 0.4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    z-index: 0;
 }
 
 #other-stuff {
@@ -39,9 +73,10 @@ body {
     height: 100vh;
     width: 25%;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 5vh;
     overflow: hidden;
-    top:0;
+    top: 0;
     position: sticky;
 }
 
@@ -53,7 +88,19 @@ body {
     max-height: 400px;
     background-color: white;
     border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(245, 245, 245, 0.6);
+}
 
+#times {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 5px;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    z-index: 2;
 }
 
 #profile-banner {
@@ -63,9 +110,9 @@ body {
     justify-content: center;
     align-items: flex-end;
     overflow: hidden;
-    background-image: url("./pictures/main-site-images/IMG_5007.jpg");
+    background-image: url("./pictures/main-site-images/me.jpg");
     background-size: cover;
-    background-position: center bottom;
+    background-position: center 35%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -73,10 +120,12 @@ body {
 #main-projects {
     width: 55%;
 }
+
 #main-projects::-webkit-scrollbar {
     display: none;
 }
-#main-projects-container{
+
+#main-projects-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,10 +141,16 @@ body {
     align-items: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position-y: 25%;
-    
+    background-position: center;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
+
+#weatherdesc {
+    position: absolute;
+    bottom: -30px;
+    z-index: 5;
+}
 
 .outside {
     position: absolute;
@@ -110,11 +165,12 @@ body {
     background-color: lightgray;
     border: none;
     height: 40px;
-    width:40px;
+    width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .textgrouper {
     display: flex;
     flex-direction: column;
@@ -124,6 +180,7 @@ body {
     width: 125px;
     height: 125px;
 }
+
 .project-section {
     padding: 25px;
     border-radius: 10px;
@@ -134,12 +191,14 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 10px
+    gap: 10px;
+    background-color: rgba(245, 245, 245, 0.6);
 }
 
 .important {
     color: red
 }
+
 .language {
     background-color: lightblue;
     width: fit-content;
@@ -147,6 +206,7 @@ body {
     border: 2px solid lightskyblue;
     border-radius: 10px;
 }
+
 .platform {
     background-color: #ffda75;
     width: fit-content;

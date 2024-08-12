@@ -403,17 +403,31 @@ run()
 // offset
 const topics = document.getElementsByClassName("topic");
 function mainProjectsOffset() {
-    const firstMainProject = document.getElementById('main-projects-container').children[0].getBoundingClientRect();
-    const lastMainProject = document.getElementById('main-projects-container').children[document.getElementById('main-projects-container').children.length - 1].getBoundingClientRect()
-    const bodyDimensions = seasonBackground.getBoundingClientRect();
-    const topOffset = (bodyDimensions.height - firstMainProject.height) / 2
-    const bottomOffset = (bodyDimensions.height - lastMainProject.height) / 2
-    document.getElementById('main-projects-container').style.paddingBottom = bottomOffset + "px";
-    for(let topic of topics) {
-        topic.style.marginTop = topOffset + 'px'
+    if(document.body.offsetWidth <= 970) {
+        const firstMainProject = document.getElementById('about-me').getBoundingClientRect();
+        const lastMainProject = document.getElementById('main-projects-container').children[document.getElementById('main-projects-container').children.length - 1].getBoundingClientRect()
+        const bodyDimensions = seasonBackground.getBoundingClientRect();
+        const topOffset = (bodyDimensions.height - firstMainProject.height) / 2
+        const bottomOffset = (bodyDimensions.height - lastMainProject.height) / 2
+        document.getElementById('main-projects-container').style.paddingBottom = bottomOffset + "px";
+        for(let topic of topics) {
+            topic.style.marginTop = topOffset + 'px'
+        }
+        document.getElementById('times').style.left = (bodyDimensions.width - document.getElementById('main-container').offsetWidth) / 2 + 'px';
+        document.getElementById('times').style.top = bodyDimensions.height - parseInt(document.getElementById('times').offsetHeight) + 'px';
+    } else {
+        const firstMainProject = document.getElementById('main-projects-container').children[0].getBoundingClientRect();
+        const lastMainProject = document.getElementById('main-projects-container').children[document.getElementById('main-projects-container').children.length - 1].getBoundingClientRect()
+        const bodyDimensions = seasonBackground.getBoundingClientRect();
+        const topOffset = (bodyDimensions.height - firstMainProject.height) / 2
+        const bottomOffset = (bodyDimensions.height - lastMainProject.height) / 2
+        document.getElementById('main-projects-container').style.paddingBottom = bottomOffset + "px";
+        for(let topic of topics) {
+            topic.style.marginTop = topOffset + 'px'
+        }
+        document.getElementById('times').style.left = (bodyDimensions.width - document.getElementById('main-container').offsetWidth) / 2 + 'px';
+        document.getElementById('times').style.top = bodyDimensions.height - parseInt(document.getElementById('times').offsetHeight) + 'px';
     }
-    document.getElementById('times').style.left = (bodyDimensions.width - document.getElementById('main-container').offsetWidth) / 2 + 'px';
-    document.getElementById('times').style.top = bodyDimensions.height - parseInt(document.getElementById('times').offsetHeight) + 'px';
 }
 document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function() {

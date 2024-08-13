@@ -216,10 +216,26 @@ if (localStorage.times) {
 
 // var aList = document.querySelectorAll("a");
 var date = new Date();
-// if (date.getHours() >= 19 || date.getHours() <= 6) {
-// 	document.body.style.backgroundColor = "#070620";
-// 	document.body.style.color = "white";
-
+date.setHours(20)
+if (date.getHours() >= 19 || date.getHours() <= 6) {
+    const projects = document.getElementsByClassName("project-section");
+    const languages = document.getElementsByClassName("language");
+    const platforms = document.getElementsByClassName("platform");
+	document.body.style.backgroundColor = "#070620";
+	document.body.style.color = "white";
+    document.getElementById("main-container").style.backgroundColor = "rgba(7,6,32,0.4)";
+    for(let project of projects) {
+        project.style.backgroundColor = "rgba(7,6,32,0.6)"
+    }
+    for(let language of languages) {
+        language.style.backgroundColor = "rgba(7,6,32,0.6)"
+    }
+    for(let platform of platforms) {
+        platform.style.backgroundColor = "black"
+    }
+    document.getElementById("season-background").style.opacity ="0.6";
+    document.getElementById("about-me").style.backgroundColor = "#1b1b1b";
+}
 // 	for(let i = 0; i < aList.length; i++) {
 // 		aList[i].style.color = "white";
 // 		aList[i].style.backgroundColor = "rgba(7, 22, 48, 0.8)";
@@ -315,7 +331,6 @@ seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/firewo
 if (date.getMonth() == 11 && date.getDate() == 25) {
 seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/christmas.jpg)'
 }
-
 async function getLocation() {
     if (navigator.geolocation) {
         const getCoords = async () => {

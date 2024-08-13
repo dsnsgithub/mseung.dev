@@ -216,7 +216,6 @@ if (localStorage.times) {
 
 // var aList = document.querySelectorAll("a");
 var date = new Date();
-date.setHours(20)
 if (date.getHours() >= 19 || date.getHours() <= 6) {
     const projects = document.getElementsByClassName("project-section");
     const languages = document.getElementsByClassName("language");

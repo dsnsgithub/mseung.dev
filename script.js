@@ -307,7 +307,7 @@ if (date.getMonth() >= 5 && date.getMonth() <= 7) {
     seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/summer.jpg)'
 }
 if (date.getMonth() == 11 || date.getMonth() == 0) {
-    seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/winter.webp)'
+    seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/winter.png)'
 }
 if (date.getMonth() == 1) {
         seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/february.jpg)'

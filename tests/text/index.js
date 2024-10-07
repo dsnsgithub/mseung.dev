@@ -11,7 +11,7 @@ async function connectToIP() {
         document.getElementById("start-screen").style.display = "none";
         document.getElementById("loading-screen").style.display = "flex";
 
-        socket = new WebSocket("wss://" + IP + ":" + port);
+        socket = new WebSocket("wss://wss.mseung.dev/" + IP + ":" + port);
 
         socket.addEventListener("open", () => {
             document.getElementById("connected-status").innerHTML = 'Connected';

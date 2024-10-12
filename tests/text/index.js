@@ -1,17 +1,19 @@
-const IP = '10.3.3.222' /* This is the only server for now */
-const port = '5000'
+const IP = 'wss.mseung.dev' /* This is the only server for now */
+
 const username = document.getElementById("name")
 const message = document.getElementById("message");
 let socket;
 var special = false;
 var clients = false;
+let recievePings = false;
 const specialMessages = document.getElementsByClassName("special-text");
+
 async function connectToIP() {
     if (username.value != '') {
         document.getElementById("start-screen").style.display = "none";
         document.getElementById("loading-screen").style.display = "flex";
 
-        socket = new WebSocket("wss://wss.mseung.dev/" + IP + ":" + port);
+        socket = new WebSocket("wss://" + IP);
 
         socket.addEventListener("open", () => {
             document.getElementById("connected-status").innerHTML = 'Connected';
@@ -42,6 +44,10 @@ async function connectToIP() {
                     handleCreateMessage(event.data)   
                 }
             }
+
+            if(recievePings) {
+                pings();
+            }
         })
 
         socket.addEventListener("close", () => {
@@ -63,6 +69,7 @@ function disconnect() {
     document.getElementById("start-screen").style.display = "flex";
     document.getElementById("connected-status").innerHTML = 'Connecting...';
     document.getElementById("connected-status").style.animation = "none";  
+    document.getElementById("message").innerHTML = '';
     document.getElementById("chat").innerHTML = '';
 }
 
@@ -75,6 +82,7 @@ function handleCreateMessage(data) {
     } else{
         document.getElementById("chat").appendChild(chatMessage);
     }
+    document.getElementById("message").value = '';
 }
 
 function handleCreateSpecialText() {
@@ -83,3 +91,15 @@ function handleCreateSpecialText() {
     specialMessage.classList.add("special-text");
     document.getElementById("chat").appendChild(specialMessage);
 }
+
+function pings() {
+    var ping = new Audio("ping.mp3");
+    ping.volume = 0.2;
+    ping.play();
+}
+window.addEventListener("focus", function() {
+    recievePings = false;
+})
+window.addEventListener("blur", function() {
+    recievePings = true;
+})

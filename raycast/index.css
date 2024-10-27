@@ -1,0 +1,21 @@
+* {
+    margin: 0
+}
+
+body {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main {
+    height: 1080px;
+    width: 1920px;
+}
+
+#b {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    color: white
+}

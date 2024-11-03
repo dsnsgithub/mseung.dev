@@ -14,6 +14,14 @@ class Ray {
         this.dir.y = y-this.pos.y;
         this.dir.normalize();
     }
+
+    show() {
+        stroke(255);
+        push();
+        translate(this.pos.x/2, this.pos.y/2 + 5);
+        line(0, 0, this.dir.x * 5, this.dir.y * 5);
+        pop();
+    }
     cast(wall) {
         const x1 = wall.a.x;
         const y1 = wall.a.y;

@@ -11,11 +11,15 @@ body {
 main {
     height: 1080px;
     width: 1920px;
+    z-index: -1;
 }
 
-#b {
+#win {
     position: absolute;
-    bottom: 0;
-    z-index: 1;
-    color: white
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
 }

@@ -1,9 +1,11 @@
 class Particle {
     constructor(fov) {
-        this.pos = createVector(sceneW / 2, sceneH / 2);
+        this.pos = createVector(mapW / 2, mapH - squareHeight / 2);
         this.rays = [];
         this.heading = 0;
         this.updateFOV(fov)
+        this.dx = this.cos(this.heading);
+        this.dy = this.sin(this.heading);
     }
 
     updateFOV(fov) {
@@ -15,6 +17,13 @@ class Particle {
         }
     }
 
+    cos(angle) {
+        return Math.cos(angle * Math.PI / 180);
+    }
+    sin(angle) {
+        return Math.sin(angle * Math.PI / 180);
+    }
+
     rotate(angle) {
         this.heading += angle;
         let index = 0;
@@ -23,15 +32,28 @@ class Particle {
             this.rays[index].setAngle(radians(a) + this.heading, radians(a));
             index++
         }
+        this.dx = this.cos(this.heading);
+        this.dy = this.sin(this.heading);
+        console.log(this.dx,this.dy)
     }
 
-    move(amt) {
+    walk(speed) {
+        // let nx = this.pos.x + (speed * this.dx);
+        // let ny = this.pos.y + (speed * this.dy);
+        // let cx = false;
+        // let cy = false;
+        // let close = Math.abs(speed);
+        // for (let wall of walls) {
+        //     var dist1 = wall.toPoint(nx, this.pos.y);
+        //     var dist2 = wall.toPoint(this.pos.x, ny);
+        //     if (Math.abs(dist1) < close) { cx = true; };
+        //     if (Math.abs(dist2) < close) { cy = true; };
+        //     console.log(nx, this.pos.y, dist1, 'dist1')
+        //     console.log(this.pos.x, ny, dist2, 'dist2')
+        // }
         const vel = p5.Vector.fromAngle(this.heading);
-        vel.setMag(amt);
+        vel.setMag(speed);
         this.pos.add(vel)
-    }
-    update(x, y) {
-        this.pos.set(x, y)
     }
     look(walls) {
         const scene = [];
@@ -54,4 +76,12 @@ class Particle {
         return scene;
     }
 
+
+    show() {
+        fill(255);
+        ellipse(this.pos.x / 2, this.pos.y / 2 + 5, 2);
+        for (let ray of this.rays) {
+            ray.show();
+        }
+    }
 }

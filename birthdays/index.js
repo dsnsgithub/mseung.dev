@@ -63,6 +63,7 @@ function sort() {
         newDates.push(dates[i])
         evenNewerDates.push(dates[i]);
     }
+
     
     var temp = evenNewerDates.length
     for (let i = 0; i < temp; i++) {
@@ -101,6 +102,15 @@ var cardnumber = 0;
 var row;
 var card;
 var birthdaylist = []
+let interval;
+
+const duration = 15 * 1000,
+  animationEnd = Date.now() + duration,
+  defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+function randomInRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 onlyonce = false;
 function check() {
@@ -136,7 +146,7 @@ function check() {
         }
     }
     if (enableBirthdays == true) {
-        for (let x = 1; x < rows.length + 1; x++) {
+        for (let x = 1; x < rows.length; x++) {
             cardnumber = cardnumber + birthdaynumber;
             row = document.getElementById("row" + x);
             while (row.childElementCount < 4 && cardnumber<cards.length) {
@@ -144,7 +154,32 @@ function check() {
                 row.append(card);
                 cardnumber++;
             }
+
         }
+        //activate confetti
+        interval = setInterval(function() {
+            const timeLeft = animationEnd - Date.now();
+          
+            if (timeLeft <= 0) {
+              return clearInterval(interval);
+            }
+          
+            const particleCount = 30 * (timeLeft / duration);
+          
+            // since particles fall down, start a bit higher than random
+            confetti(
+              Object.assign({}, defaults, {
+                particleCount,
+                origin: { x: randomInRange(0,1), y: Math.random() - 0.2 },
+              })
+            );
+            confetti(
+              Object.assign({}, defaults, {
+                particleCount,
+                origin: { x: randomInRange(0,1), y: Math.random() - 0.2 },
+              })
+            );
+        }, 250)
         
         sort();
         for (let i = 0; i < names.length; i++) {

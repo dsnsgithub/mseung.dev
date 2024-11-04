@@ -12,8 +12,8 @@ const map = [
     [0,0,0,0,0,0,0,0,0],
 ];
 
-let sceneW = 1920;
-let sceneH = 1080;
+let sceneW = window.innerWidth;
+let sceneH = window.innerHeight;
 const squareWidth = 70;
 const squareHeight = 70;
 const mapW = map[0].length * squareWidth;
@@ -28,10 +28,17 @@ setInterval(function() {
 }, 1000);
   
 function changeSize() {
-    document.querySelector("main").style.height = window.innerHeight + "px";
-    document.querySelector("main").style.width = window.innerWidth + "px";
+    var oldSceneH = sceneH;
+    var oldSceneW = sceneW;
     sceneH = window.innerHeight;
     sceneW = window.innerWidth;
+    if(oldSceneH != sceneH || oldSceneW != sceneW) {
+        document.getElementById("defaultCanvas0").style.width = sceneW + "px";
+        document.getElementById("defaultCanvas0").style.height = sceneH + "px";
+        document.getElementById("defaultCanvas0").width = sceneW ;
+        document.getElementById("defaultCanvas0").height = sceneH;
+        setup();
+    }
 }
 
 function setup() {
@@ -79,7 +86,7 @@ function draw() {
 
     if(particle.pos.y < 0 || particle.pos.y > mapH || particle.pos.x < 0 || particle.pos.x > mapW) {
         document.getElementById("win").style.display = 'flex';
-        
+
     }
 
     const w = sceneW / scene.length;
@@ -88,10 +95,10 @@ function draw() {
         noStroke();
         const d = scene[i]/sceneW;
         let b;
-        if(1/d + 2 > 10) {
+        if(0.5/d + 2 > 10) {
             b = 10;
         } else {
-            b = 1/d + 2;
+            b = 0.5/d + 2;
         }
         const h = 30/d;
         colorMode(HSB);

@@ -220,19 +220,19 @@ if (date.getHours() >= 19 || date.getHours() <= 6) {
     const projects = document.getElementsByClassName("project-section");
     const languages = document.getElementsByClassName("language");
     const platforms = document.getElementsByClassName("platform");
-	document.body.style.backgroundColor = "#070620";
-	document.body.style.color = "white";
+    document.body.style.backgroundColor = "#070620";
+    document.body.style.color = "white";
     document.getElementById("main-container").style.backgroundColor = "rgba(7,6,32,0.4)";
-    for(let project of projects) {
+    for (let project of projects) {
         project.style.backgroundColor = "rgba(7,6,32,0.6)"
     }
-    for(let language of languages) {
+    for (let language of languages) {
         language.style.backgroundColor = "rgba(7,6,32,0.6)"
     }
-    for(let platform of platforms) {
+    for (let platform of platforms) {
         platform.style.backgroundColor = "black"
     }
-    document.getElementById("season-background").style.opacity ="0.6";
+    document.getElementById("season-background").style.opacity = "0.6";
     document.getElementById("about-me").style.backgroundColor = "#1b1b1b";
 }
 // 	for(let i = 0; i < aList.length; i++) {
@@ -300,7 +300,7 @@ if (date.getMonth() == 9) {
     seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/halloween.jpg)'
 }
 if (date.getMonth() == 10 || date.getMonth() == 8) {
-        seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/autumntrees.jpg)'
+    seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/autumntrees.jpg)'
 }
 
 if (date.getMonth() >= 5 && date.getMonth() <= 7) {
@@ -310,7 +310,7 @@ if (date.getMonth() == 11 || date.getMonth() == 0) {
     seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/winter.png)'
 }
 if (date.getMonth() == 1) {
-        seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/february.jpg)'
+    seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/february.jpg)'
 }
 if (date.getMonth() == 1 && date.getDate() == 29) {
     seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/leapday.jpg)'
@@ -325,83 +325,83 @@ if (date.getMonth() == 2) {
     seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/march.jpg)'
 }
 if ((date.getMonth() == 0 && date.getDate() == 1) || (date.getMonth() == 6 && date.getDate() == 4)) {
-seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/fireworks.jpg)'
+    seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/fireworks.jpg)'
 }
 if (date.getMonth() == 11 && date.getDate() == 25) {
-seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/christmas.jpg)'
+    seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/christmas.jpg)'
 }
-async function getLocation() {
-    if (navigator.geolocation) {
-        const getCoords = async () => {
-            const pos = await new Promise((resolve, reject) => {
-                navigator.geolocation.getCurrentPosition(resolve, reject);
-            });
+// async function getLocation() {
+//     if (navigator.geolocation) {
+//         const getCoords = async () => {
+//             const pos = await new Promise((resolve, reject) => {
+//                 navigator.geolocation.getCurrentPosition(resolve, reject);
+//             });
 
-            return {
-                lon: pos.coords.longitude,
-                lat: pos.coords.latitude,
-            };
-        };
+//             return {
+//                 lon: pos.coords.longitude,
+//                 lat: pos.coords.latitude,
+//             };
+//         };
 
-        return await getCoords()
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
-}
+//         return await getCoords()
+//     } else {
+//         alert("Geolocation is not supported by this browser.");
+//     }
+// }
 
-async function fetchLocation(lat, lon) {
-    const res = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=c95438ae35d06a4034d5edf752024f48&units=imperial');
-    return await res.json();
-}
+// async function fetchLocation(lat, lon) {
+//     const res = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=c95438ae35d06a4034d5edf752024f48&units=imperial');
+//     return await res.json();
+// }
 
-const pictureFrame = document.getElementById("pictureframe");
-const loading = document.getElementById("loading")
-const weatherdesc = document.getElementById("weatherdesc");
-weatherdesc.innerHTML = "Weather Description: "
-async function changeSkyColor(data) {
-    var postQuery = [];
-    if (Math.random() <= 0.5) {
-        postQuery.push("%20aesthetic")
-    }
-    if (Math.random() <= 0.5) {
-        postQuery.push("%20nature")
-    }
-    if (Math.random() <= 0.5) {
-        postQuery.push("%20wallpaper")
-    }
-    postQuery = postQuery.join("")
-    const date = new Date();
-    const seconds = date.getTime() / 1000;
-    var timeQuery = '';
-    var weatherQuery = '';
-    if (seconds >= data.sys.sunrise && seconds <= data.sys.sunrise + 600) {
-        timeQuery = 'sunrise'
-    } else if (seconds >= data.sys.sunset && seconds <= data.sys.sunset + 600) {
-        timeQuery = 'sunset'
-    } else if (seconds >= data.sys.sunrise + 600 && seconds <= data.sys.sunset) {
-        timeQuery = 'sunny day'
-    } else if (seconds <= data.sys.sunrise || seconds >= data.sys.sunset + 600) {
-        timeQuery = 'dark night';
-    }
-    weatherQuery = data.weather[0].description;
-    weatherdesc.innerHTML = "Weather Description: " + timeQuery + ", " + weatherQuery;
-    weatherQuery = weatherQuery.split(' ').join('%20')
-    timeQuery = timeQuery.split(' ').join('%20');
-    const res = await fetch('https://cors.dsns.dev/server.mseung.dev/?query=' + timeQuery + "%20" + weatherQuery + postQuery);
+// const pictureFrame = document.getElementById("pictureframe");
+// const loading = document.getElementById("loading")
+// const weatherdesc = document.getElementById("weatherdesc");
+// weatherdesc.innerHTML = "Weather Description: "
+// async function changeSkyColor(data) {
+//     var postQuery = [];
+//     if (Math.random() <= 0.5) {
+//         postQuery.push("%20aesthetic")
+//     }
+//     if (Math.random() <= 0.5) {
+//         postQuery.push("%20nature")
+//     }
+//     if (Math.random() <= 0.5) {
+//         postQuery.push("%20wallpaper")
+//     }
+//     postQuery = postQuery.join("")
+//     const date = new Date();
+//     const seconds = date.getTime() / 1000;
+//     var timeQuery = '';
+//     var weatherQuery = '';
+//     if (seconds >= data.sys.sunrise && seconds <= data.sys.sunrise + 600) {
+//         timeQuery = 'sunrise'
+//     } else if (seconds >= data.sys.sunset && seconds <= data.sys.sunset + 600) {
+//         timeQuery = 'sunset'
+//     } else if (seconds >= data.sys.sunrise + 600 && seconds <= data.sys.sunset) {
+//         timeQuery = 'sunny day'
+//     } else if (seconds <= data.sys.sunrise || seconds >= data.sys.sunset + 600) {
+//         timeQuery = 'dark night';
+//     }
+//     weatherQuery = data.weather[0].description;
+//     weatherdesc.innerHTML = "Weather Description: " + timeQuery + ", " + weatherQuery;
+//     weatherQuery = weatherQuery.split(' ').join('%20')
+//     timeQuery = timeQuery.split(' ').join('%20');
+//     const res = await fetch('https://cors.dsns.dev/server.mseung.dev/?query=' + timeQuery + "%20" + weatherQuery + postQuery);
 
-    /** @type {String[]} */
-    const imgURLS = await res.json();
-    return imgURLS
-}
+//     /** @type {String[]} */
+//     const imgURLS = await res.json();
+//     return imgURLS
+// }
 
 
-async function chooseRandomImage(imgURLS) {
-    const cutURLS = imgURLS.slice(1, imgURLS.length - 1)
-    const randomNumber = Math.floor(Math.random() * cutURLS.length)
-    const imageURL = cutURLS[randomNumber]
-    pictureFrame.style.backgroundImage = `url(${imageURL})`
-    loading.style.display = "none"
-}
+// async function chooseRandomImage(imgURLS) {
+//     const cutURLS = imgURLS.slice(1, imgURLS.length - 1)
+//     const randomNumber = Math.floor(Math.random() * cutURLS.length)
+//     const imageURL = cutURLS[randomNumber]
+//     pictureFrame.style.backgroundImage = `url(${imageURL})`
+//     loading.style.display = "none"
+// }
 
 async function run() {
     const coords = await getLocation()
@@ -417,14 +417,14 @@ run()
 // offset
 const topics = document.getElementsByClassName("topic");
 function mainProjectsOffset() {
-    if(document.body.offsetWidth <= 970) {
+    if (document.body.offsetWidth <= 970) {
         const firstMainProject = document.getElementById('about-me').getBoundingClientRect();
         const lastMainProject = document.getElementById('main-projects-container').children[document.getElementById('main-projects-container').children.length - 1].getBoundingClientRect()
         const bodyDimensions = seasonBackground.getBoundingClientRect();
         const topOffset = (bodyDimensions.height - firstMainProject.height) / 2
         const bottomOffset = (bodyDimensions.height - lastMainProject.height) / 2
         document.getElementById('main-projects-container').style.paddingBottom = bottomOffset + "px";
-        for(let topic of topics) {
+        for (let topic of topics) {
             topic.style.marginTop = topOffset + 'px'
         }
         document.getElementById('times').style.left = (bodyDimensions.width - document.getElementById('main-container').offsetWidth) / 2 + 'px';
@@ -436,7 +436,7 @@ function mainProjectsOffset() {
         const topOffset = (bodyDimensions.height - firstMainProject.height) / 2
         const bottomOffset = (bodyDimensions.height - lastMainProject.height) / 2
         document.getElementById('main-projects-container').style.paddingBottom = bottomOffset + "px";
-        for(let topic of topics) {
+        for (let topic of topics) {
             topic.style.marginTop = topOffset + 'px'
         }
         document.getElementById('times').style.left = (bodyDimensions.width - document.getElementById('main-container').offsetWidth) / 2 + 'px';
@@ -444,8 +444,8 @@ function mainProjectsOffset() {
     }
 }
 document.addEventListener('DOMContentLoaded', function () {
-    setTimeout(function() {
+    setTimeout(function () {
         mainProjectsOffset()
-        window.addEventListener('resize', function() {mainProjectsOffset()})
+        window.addEventListener('resize', function () { mainProjectsOffset() })
     }, 100)
 });

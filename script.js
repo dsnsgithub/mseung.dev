@@ -1,123 +1,3 @@
-// var x = 0;
-// var l = 1;
-// var letterInterval;
-
-// const text = document.getElementById("name");
-// const words1 = "mseung";
-// const words2 = "Max Seung";
-
-// function startup() {
-// 	letterInterval = setInterval(function() {
-// 		addletter(words1)
-// 	}, 150);
-// 	function addletter(words) {
-// 		text.innerHTML = text.innerHTML + words.charAt(x); /*Adds letter to textbox*/
-// 		x++;
-// 		if (x >= words.length) {
-// 			/*if done with the sentence*/
-// 			clearInterval(letterInterval); /*stop making x go up*/
-// 			setTimeout(function() {letterInterval = setInterval(removeletter, 150)}, 5000)
-// 		}
-// 	}
-
-// 	function removeletter() {
-// 		text.innerHTML = text.innerHTML.slice(0, -1)
-// 		x--;
-// 		if (x <= 0) {
-// 			/*if done with the sentence*/
-// 			clearInterval(letterInterval); /*stop making x go up*/
-// 			l++;
-// 			if(l % 2 == 0) {
-// 				setTimeout(function() {
-// 					letterInterval = setInterval(function() {
-// 						addletter(words2)
-// 					}, 150)
-// 				}, 200)
-// 			} else {
-// 				setTimeout(function() {
-// 					letterInterval = setInterval(function() {
-// 						addletter(words1)
-// 					}, 150)
-// 				}, 200)
-// 			}
-// 		}
-// 	}
-// }
-
-// startup();
-
-// const menubutton = document.getElementById('menubutton');
-// const menu = document.getElementById('menu');
-// const maincontainer = document.getElementById('maincontainer');
-// const menustuff = document.getElementById('menustuff');
-// const menulines = document.getElementsByClassName('menuline');
-
-// var isOpened = false;
-// var canBeOpened = true;
-// var currentSection = "main";
-
-// function slide() {
-//     if(canBeOpened) {
-//         if(isOpened) {
-//             menustuff.style.animationName = "fromleft";
-//             menustuff.style.animationDirection = "reverse";
-//             document.getElementById(currentSection + "container").style.animationName = "blur";
-//             document.getElementById(currentSection + "container").style.animationDirection = "reverse";
-// 			for(let i=0;i<menulines.length; i++) {
-// 				menulines[i].style.animationName = "moveback" + (i+1);
-// 			}
-//             setTimeout(function() {
-//                 menu.style.animationName = "slidein";
-//                 menu.style.animationDirection = "reverse";
-//                 setTimeout(function() {
-//                     menu.style.display = "none";
-//                     menustuff.style.display = "none";
-//                     isOpened = false;
-//                 }, 750)
-//             }, 500)
-// 			setTimeout(function() {
-// 				document.getElementById(currentSection + "container").style.filter = "none";
-//             }, 1100)
-//         } else {
-//             menu.style.animationName = "slidein";
-//             menu.style.display = "flex";
-//             document.getElementById(currentSection + "container").style.animationName = "blur";
-
-// 			for(let i=0;i<menulines.length; i++) {
-// 				menulines[i].style.animationName = "move" + (i+1)
-// 			}
-//             setTimeout(function() {
-//                 menustuff.style.animationName = "fromleft";
-//                 menustuff.style.display = "flex";
-// 				menustuff.style.left = "0%"
-//             }, 500)
-// 			setTimeout(function() {
-// 				document.getElementById(currentSection + "container").style.filter = "blur(200px)";
-//             }, 1100)
-//         }
-
-//         canBeOpened = false;
-//         isOpened = true;
-
-//         setTimeout(function() {
-//             document.getElementById(currentSection + "container").style.animationName = "";
-//             document.getElementById(currentSection + "container").style.animationDirection = "";
-//             menustuff.style.animationName = "";
-//             menustuff.style.animationDirection = "";
-//             canBeOpened = true;
-//             menu.style.animationName = "";
-//             menu.style.animationDirection = "";
-//         }, 1250)
-//     }
-// }
-
-// function changeContent(section) {
-// 	document.getElementById(currentSection + "container").style.display = "none";
-// 	document.getElementById(section + "container").style.display = "flex";
-// 	document.getElementById(section + "container").style.filter = "blur(100px)";
-// 	currentSection = section;
-// 	slide();	
-// }
 // // /*times opened--------- */
 const timesOpened = document.getElementById("timesopened");
 const firstOpened = document.getElementById("firstvisited");
@@ -299,10 +179,12 @@ const seasonBackground = document.getElementById("season-background");
 if (date.getMonth() == 9) {
     seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/halloween.jpg)'
 }
-if (date.getMonth() == 10 || date.getMonth() == 8) {
+if (date.getMonth() == 8) {
     seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/autumntrees.jpg)'
 }
-
+if (date.getMonth() == 10) {
+    seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/november.jpg)'
+}
 if (date.getMonth() >= 5 && date.getMonth() <= 7) {
     seasonBackground.style.backgroundImage = 'url(./pictures/main-site-images/summer.jpg)'
 }

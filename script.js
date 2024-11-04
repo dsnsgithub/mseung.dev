@@ -403,16 +403,16 @@ if (date.getMonth() == 11 && date.getDate() == 25) {
 //     loading.style.display = "none"
 // }
 
-async function run() {
-    const coords = await getLocation()
-    const data = await fetchLocation(coords["lat"], coords["lon"])
-    const imgURLs = await changeSkyColor(data);
-    setInterval(async () => {
-        await chooseRandomImage(imgURLs)
-    }, 5000)
-}
+// async function run() {
+//     const coords = await getLocation()
+//     const data = await fetchLocation(coords["lat"], coords["lon"])
+//     const imgURLs = await changeSkyColor(data);
+//     setInterval(async () => {
+//         await chooseRandomImage(imgURLs)
+//     }, 5000)
+// }
 
-run()
+// run()
 
 // offset
 const topics = document.getElementsByClassName("topic");

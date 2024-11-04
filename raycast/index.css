@@ -12,8 +12,18 @@ main {
     height: 1080px;
     width: 1920px;
     z-index: -1;
+    position: absolute;
+    top: 0;
 }
 
+#b {
+    position: absolute;
+    bottom: 20px;
+    font-size: large;
+    z-index: 1;
+    color: white;
+    text-align: center;
+}
 #win {
     position: absolute;
     top: 0;

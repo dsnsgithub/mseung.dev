@@ -32,16 +32,16 @@ function capture(payload) {
 	if (payload.score >= scoreActivation && payload.score <= scoreMaximum) {
 		if (!motion) {
 			timesPlayed++
-				audio.play();
+			audio.play();
 			times.innerText = timesPlayed
 		}
 		motion = true
 	}
 
-	if (payload.score < scoreActivation	) {
+	if (payload.score < scoreActivation) {
 		motion = false
 	}
-	
+
 }
 
 function lightMode() {
@@ -74,13 +74,13 @@ function setMax() {
 // 	  bubbles: true,
 // 	  cancelable: true,
 // 	});
-  
+
 // 	targetElement.dispatchEvent(event);
 //   }
-  
+
 //   const inputElement = document.getElementById('myInput');
 //   simulateKeyPress(inputElement, 'a');
-  
+
 DiffCamEngine.init({
 	video: video,
 	motionCanvas: canvas,

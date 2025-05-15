@@ -1,251 +1,192 @@
 * {
     margin: 0;
-    font-family: 'Raleway', sans-serif;
+    font-family: SF-reg;
+}
+
+:root {
+    --menuHeight: ;
+}
+
+body {
+    overflow: hidden;
 }
 
 h1 {
-    font-weight: 600;
-    font-size: 1.35rem;
+    font-size: 3.25rem;
 }
 
-sub {
-    font-weight: 400;
-}
-
-p {
-    font-size: 0.9rem;
+p,a {
+    font-size: 1.7rem;
+    box-sizing: border-box;
 }
 
 a {
     text-decoration: none;
-    display: flex;
-    align-items: center;
     color: black;
-    justify-content: center;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    overflow-y: scroll;
-}
-
-::-webkit-scrollbar {
-    width: 7.5px;
-    opacity: 0.5;
-}
-
-::-webkit-scrollbar-track {
-    opacity: 0.5;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-#season-background {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    background-position: center;
-    background-size: cover;
-    z-index: -5;
-}
-
-#main-container {
-    display: flex;
-    flex-direction: row;
-    gap: 3vw;
-    width: 1250px;
-    background-color: rgba(245, 245, 245, 0.4);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    backdrop-filter: blur(5px);
-    justify-content: center;
-    z-index: 0;
-}
-
-#other-stuff {
-    display: flex;
     height: 100vh;
-    width: 25%;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5vh;
-    overflow: hidden;
-    top: 0;
-    position: sticky;
+    overflow-x: hidden;
 }
 
-
-#about-me {
-    min-width: 100%;
-    min-height: 400px;
-    max-width: 100%;
-    max-height: 400px;
+#menu {
+    position: fixed; 
+    height: 5vh;
+    margin-top: -5vh;
+    width: 100%;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    background-color: rgba(245, 245, 245, 0.6);
-}
-
-#times {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 5px;
-    box-sizing: border-box;
-    position: fixed;
-    left: 0;
-    z-index: 2;
-}
-
-#profile-banner {
-    min-height: 50%;
-    width: 100%;
+    opacity: 0.95;
+    
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    overflow: hidden;
-    background-image: url("./pictures/main-site-images/me.jpg");
-    background-size: cover;
-    background-position: center 35%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-#main-projects {
-    width: 55%;
-}
-
-#main-projects::-webkit-scrollbar {
-    display: none;
-}
-
-#main-projects-container {
-    display: flex;
-    flex-direction: column;
+    gap: 25px;
     align-items: center;
-    gap: 5vh;
-}
-
-#pictureframe {
-    position: relative;
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-}
-
-
-#weatherdesc {
-    position: absolute;
-    bottom: -30px;
     z-index: 5;
 }
 
-.outside {
-    position: absolute;
-    width: 600px;
-    height: 500px;
-    background-color: blue;
-    z-index: 1;
+#menu > button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 100;
+    font-family: SF-reg;
+    height: 100%;
 }
 
-.circlebutton {
-    border-radius: 50%;
-    background-color: lightgray;
-    border: none;
-    height: 40px;
-    width: 40px;
+#featured {
+    margin-top: 5vh;
+    position: relative; /* Needed so absolute children (like img) are positioned inside */
     display: flex;
     justify-content: center;
+    overflow: hidden; /* optional: hides any image overflow */
+    background-color: #fff2fe;
+    height: 75vh;
+}
+
+#featureddescription {
+    z-index: 2;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
+    position: absolute;
+    height: 37.5%;
+    gap: 5px;
 }
 
-.textgrouper {
-    display: flex;
-    flex-direction: column;
+@font-face {
+    font-family: SF-reg;
+    src: url(SF-Pro-Display-Regular.otf);
 }
 
-.language-icon {
-    width: 125px;
-    height: 125px;
-}
 
-.project-section {
-    padding: 25px;
-    border-radius: 10px;
-    justify-self: center;
-    width: 95%;
-    height: fit-content;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+#featuredbuttons {
+    display: flex; 
+    justify-content: center; 
     gap: 10px;
-    background-color: rgba(245, 245, 245, 0.6);
+    width: 100%;
+    height: 20%;
+    margin-top: 2.5%;
 }
 
-.important {
-    color: red
+.rainbow1 {
+    background: linear-gradient(90deg, fuchsia, red, orange);
+    color: transparent;
+    background-clip: text;
 }
 
-.language {
-    background-color: lightblue;
-    width: fit-content;
-    padding: 5px;
-    border: 2px solid lightskyblue;
-    border-radius: 10px;
+/* 
+#featuredbackground {
+    width: 100%;
+    height: 75vh;
+    z-index: 1;
+    background-image: url(../pictures/main-site-images/cherryblossoms.webp);
+    opacity: 0.1;
+} */
+
+#demo {
+    position: absolute;
+    height: 60%;
+    bottom: 0;
+    display: flex;
 }
 
-.platform {
-    background-color: #ffda75;
-    width: fit-content;
-    padding: 5px;
-    border: 2px solid #e8be4a;
-    border-radius: 10px;
+.othercontainer {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 70vh;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.othercontainer > * {
+    display: flex;
+    width: calc(50% - 15px);
+    height: 100%;
+    background-color:#f8f8f8;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 5%;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer
 }
 
-@media screen and (max-width: 1250px) {
-    #main-container {
-        width: 100%
-    }
+.applebutton {
+    width: 17.5%;
+    height: 10%;
+    background-color: #0077ed;
+    border-radius: 100px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    margin-top: 2.5%;
+    cursor: pointer
 }
-@media screen and (max-width: 970px) {
-    #main-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    #other-stuff {
-        width: 300px;
-        position: static;
-    }
-    #about-me {
-        position: static;
-        min-height: 385px;
-    }
+
+.applebutton:active {
+    background-color: #0062c4;
 }
-@media screen and (max-width: 695px) {
 
-    #other-stuff {
-        width: 300px;
-        position: static;
-    }
-    #about-me {
-        position: static;
-        min-height: 385px;
-    }
 
-    #main-projects {
-        width: 90%;
-    }
+.menucontent {
+    width: 100%;
+    position: absolute;
+    padding: 4% 30% 4% 30%;
+    box-sizing: border-box;
+    top: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+}
+
+.menucontent > * {
+    opacity: 0;
+    max-width: fit-content;
+}
+
+@keyframes slidein {
+    from {top: var(--menuHeight);}
+    to {top: 0;}
+}
+
+@keyframes slideout {
+    from {}
+    to {top: var(--menuHeight);}
+}
+
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
 }

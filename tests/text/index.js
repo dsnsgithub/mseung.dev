@@ -12,7 +12,6 @@ async function connectToIP() {
     if (username.value != '') {
         document.getElementById("start-screen").style.display = "none";
         document.getElementById("loading-screen").style.display = "flex";
-
         socket = new WebSocket("wss://" + IP);
 
         socket.addEventListener("open", () => {

@@ -32,7 +32,7 @@ body {
 
 #menu {
     position: fixed; 
-    height: 5vh;
+    height: 30px;
     margin-top: -5vh;
     width: 100%;
     background-color: white;
